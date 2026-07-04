@@ -7,7 +7,7 @@ for learner who want to follow my steps of working please check from commits to 
 
 ### initializing your own vector
 ---
-first and foremost before diving in deep you should  have your own vector representation in my code it will be found in *header/vector.h* or click here [vector header](https://github.com/yorkings/refactored_graphical_ray_tracing/headers/vec3.h).
+first and foremost before diving in deep you should  have your own vector representation in my code it will be found in *header/vector.h* or click here [vector header](https://github.com/yorkings/refactored_graphical_ray_tracing/blob/master/headers/vec3.h).
 
 we have to notice we use vector because our data reuires x,y,z or red,blue,green  and the most efficient way to represent data is in vector.remember a vector falls in 2D. 
 vector usecase ,will be  used for storing spatial coordinates, storing colors, and performing math operations.
