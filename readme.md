@@ -4,7 +4,7 @@ i am trying to built my own render engine just to sharpen my skills  and learn m
 ### introduction
 for learner who want to follow my steps of working please check from commits to commits cause each commit will be tackling a  specific challenge
 - i like to use  ` #pragma once ` instead of  ` #ifndef  HEADER_H `
-
+- the *data/* folder will contain mostly my `.ppm` files but i have added time tag
 ### initializing your own vector
 ---
 first and foremost before diving in deep you should  have your own vector representation in my code it will be found in *header/vector.h* or click here [vector header](https://github.com/yorkings/refactored_graphical_ray_tracing/blob/master/headers/vec3.h).
@@ -19,3 +19,15 @@ vector usecase ,will be  used for storing spatial coordinates, storing colors, a
 ###  first chapter understanding a ray
 ray  is found by this approach    **$ \text{ray} = \text{origin} + t \times \text{direction} $ **, where **t** is the steps at each point
 [ray class](https://github.com/yorkings/refactored_graphical_ray_tracing/blob/master/headers/ray.h)
+
+### camera and some properties
+---
+| camera properties | explanation |
+|:-: | :---|
+| camera_center | The position of the camera (or "eye") in 3D world space.|
+| focal_length|The distance from the camera center to the viewport (the imaginary screen through which rays pass).|
+|viewport_u|A vector representing the full width of the viewport along the horizontal axis.|
+|viewport_v|A vector representing the full width of the viewport along the vertical axis.|
+---
+
+in the full code we are creating camera class [camera class](https://github.com/yorkings/refactored_graphical_ray_tracing/blob/master/headers/camera.h)

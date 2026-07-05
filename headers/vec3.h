@@ -67,3 +67,5 @@ inline Vector3d unit_vector(Vector3d v){
     float len=v.length();
     return len>0 ? (v/len) : Vector3d(0,0,0);
 }
+
+std::string get_current_time();
