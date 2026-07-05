@@ -1,0 +1,1 @@
+/usr/bin/c++ -Wl,--dependency-file=CMakeFiles/GraphicsRework.dir/link.d CMakeFiles/GraphicsRework.dir/main.cpp.o -o "/home/yorkingstar/Documents/portfolio-projects/C projects/c++/graphics_rework_full_understanding/GraphicsRework"

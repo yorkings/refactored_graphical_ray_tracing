@@ -18,7 +18,9 @@ std::string get_current_time() {
 
 int main() {
     Camera cam;
-    cam.image_width = 1920; // Set the desired image width
+    cam.image_width = 0; // Set the desired image width
+    cam.image_height = 0; // Set the desired image height
+    cam.focal_length = 0.4f; // Set the desired focal length
     cam.render();
     return 0;
 }

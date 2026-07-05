@@ -1,0 +1,3 @@
+/home/yorkingstar/Documents/portfolio-projects/C projects/c++/graphics_rework_full_understanding/build/CMakeFiles/GraphicsRework.dir
+/home/yorkingstar/Documents/portfolio-projects/C projects/c++/graphics_rework_full_understanding/build/CMakeFiles/edit_cache.dir
+/home/yorkingstar/Documents/portfolio-projects/C projects/c++/graphics_rework_full_understanding/build/CMakeFiles/rebuild_cache.dir

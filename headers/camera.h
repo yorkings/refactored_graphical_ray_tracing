@@ -5,7 +5,9 @@
 #include "coloring.h"
 class Camera{
     public:
-        int image_width = 200;
+        int image_width=0;
+        int image_height=0;
+        float focal_length=1.0f;
         void render(){
             initialize();
             
@@ -29,29 +31,35 @@ class Camera{
             }
         }
     private:
-        int image_height;
+        
         Vector3d camera_center;//where the camera is located in the world  
         Vector3d pixel00_loc;//location of the center of the pixel at (0,0) in the world 
         Vector3d pixel_delta_u; 
         Vector3d pixel_delta_v;                                
         void initialize(){
             auto aspect_ratio = 16.0f/9.0f;
-            image_height = static_cast<int>(image_width / aspect_ratio);
+            if (image_width > 0 && image_height <= 0) {
+                image_height = static_cast<int>(image_width / aspect_ratio);
+            }else if (image_height > 0 && image_width <= 0) {
+                image_width = static_cast<int>(image_height * aspect_ratio);
+            } else if (image_width <= 0 && image_height <= 0) {
+                image_width = 400; // Default width
+                image_height = static_cast<int>(image_width / aspect_ratio); // Calculate height based on aspect ratio
+            }
             auto viewport_height = 2.0f;
             auto viewport_width = (image_width / static_cast<float>(image_height)) * viewport_height;
-            auto focal_length = 1.0f;
             camera_center = Vector3d(0,0,0);
             auto viewport_u = Vector3d(viewport_width,0,0);
             auto viewport_v = Vector3d(0,viewport_height,0);
-            pixel_delta_u = viewport_u / (viewport_width - 1);
-            pixel_delta_v = viewport_v / (viewport_height - 1);
+            pixel_delta_u = viewport_u / image_width;
+            pixel_delta_v = viewport_v / image_height;
             auto View_port_lower_left_corner = camera_center - viewport_u/2 - viewport_v/2 - Vector3d(0,0,focal_length);
             pixel00_loc=View_port_lower_left_corner+0.5*(pixel_delta_u+pixel_delta_v);
         }  
         Vector3d ray_color(const Ray& r) {
             Vector3d unit_direction =unit_vector(r.get_direction());
             float t = 0.5f * (unit_direction.get_y() + 1.0f);
-            return (1.0f - t) * Vector3d(1.0f, 1.0f, 1.0f) + t * Vector3d(0.5f, 0.7f, 1.0f);
+            return (1.0f - t) * color(1.0f, 1.0f, 1.0f) + t * color(0.5f, 0.7f, 1.0f);
         }
 
                      
