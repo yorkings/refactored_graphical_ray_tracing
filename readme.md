@@ -18,3 +18,4 @@ vector usecase ,will be  used for storing spatial coordinates, storing colors, a
 
 ###  first chapter understanding a ray
 ray  is found by this approach    **$ \text{ray} = \text{origin} + t \times \text{direction} $ **, where **t** is the steps at each point
+[ray class](https://github.com/yorkings/refactored_graphical_ray_tracing/blob/master/headers/ray.h)
