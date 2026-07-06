@@ -1,8 +1,7 @@
 #pragma once
-#include <iostream>
-#include  "vec3.h"
-using color =Vector3d;
+#include  "general.h"
 
+using color=Vector3d;
 void write_color(std::ostream &image ,const color &pixel_color){
     auto ir = static_cast<unsigned char>(255.999f * pixel_color.get_r());
     auto ig = static_cast<unsigned char>(255.999f * pixel_color.get_g());

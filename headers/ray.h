@@ -1,15 +1,15 @@
+#pragma once
 #include<iostream>
-#include "vec3.h"
-
+#include "general.h"
+using vec3=Vector3d;
 class Ray{
     public:
-        Vector3d origin;
-        Vector3d direction;
-        Ray(){};
-        Ray(const Vector3d &o,const Vector3d &d):origin(o),direction(d){};
-        inline Vector3d get_origin() const { return origin; }
-        inline Vector3d get_direction() const { return direction; }
-        inline Vector3d at(float t) const {
+        vec3 origin;
+        vec3 direction;
+        Ray(const vec3 &o,const vec3 &d):origin(o),direction(d){};
+        inline vec3 get_origin() const { return origin; }
+        inline vec3 get_direction() const { return direction; }
+        inline vec3 at(float t) const {
             return origin + t*direction;
         }
 };

@@ -2,7 +2,9 @@
 #include<iostream>
 #include<cmath>
 #include<cstdlib>
+#include "general.h"
 
+std::string get_current_time();
 class Vector3d{
     public:
         float x,y,z;
@@ -67,5 +69,41 @@ inline Vector3d unit_vector(Vector3d v){
     float len=v.length();
     return len>0 ? (v/len) : Vector3d(0,0,0);
 }
+//random vector generation
+inline Vector3d random_vector(){
+    return Vector3d(random_float(),random_float(),random_float());
+}
 
-std::string get_current_time();
+inline Vector3d random_vector(float min,float max){
+    return Vector3d(random_float(min,max),random_float(min,max),random_float(min,max));
+}
+
+inline Vector3d random_unit_vector(){
+    while(true){
+        auto p=random_vector(-1,1);
+        if(p.squared_length()>=1) continue;
+        return unit_vector(p);
+    }
+}
+
+inline Vector3d random_on_hemisphere(const Vector3d& normal) {
+    Vector3d in_unit_sphere = random_unit_vector();
+    if (dot(in_unit_sphere, normal) > 0.0f) // In the same hemisphere as the normal
+        return in_unit_sphere;
+    else
+        return -in_unit_sphere;
+}
+
+//reflection and refraction
+inline Vector3d reflect(const Vector3d& v, const Vector3d& n) {
+    return v - 2 * dot(v, n) * n;
+}
+inline Vector3d refract(const Vector3d& uv, const Vector3d& n, float etai_over_etat) {
+    float cos_theta = fmin(dot(-uv, n), 1.0f);
+    Vector3d r_out_perp = etai_over_etat * (uv + cos_theta * n);
+    Vector3d r_out_parallel = -sqrt(fabs(1.0f - r_out_perp.squared_length())) * n;
+    return r_out_perp + r_out_parallel;
+}
+
+
+
