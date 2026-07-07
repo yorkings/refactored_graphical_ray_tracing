@@ -30,10 +30,12 @@ class Camera{
             for(int j=image_height-1;j>=0;j--){
                 std::cerr<<"\rScanlines remaining: "<<j<<' '<<std::flush;
                 for(int i=0;i<image_width;i++){
-                    auto pixel_center=pixel00_loc+i*pixel_delta_u+j*pixel_delta_v;
-                    auto ray_direction=pixel_center-camera_center;
-                    Ray r(camera_center,ray_direction);
-                    color pixel_color = ray_color(r,world);
+                    color pixel_color(0,0,0);
+                    for(int s=0;s<samples_per_pixel;s++){
+                        auto ray=get_ray(i,j);
+                        pixel_color+=ray_color(ray,world);
+                    }
+                    pixel_color/=static_cast<float>(samples_per_pixel);
                     write_color(image,pixel_color);
                 }
             }
@@ -43,9 +45,11 @@ class Camera{
         vec3 camera_center;//where the camera is located in the world  
         vec3 pixel00_loc;//location of the center of the pixel at (0,0) in the world 
         vec3 pixel_delta_u; 
-        vec3 pixel_delta_v;                                
+        vec3 pixel_delta_v;   
+        float pixel_sample_scale;                             
         void initialize(){
             auto aspect_ratio = 16.0f/9.0f;
+            pixel_sample_scale=1.0/samples_per_pixel;
             if (image_width > 0 && image_height <= 0) {
                 image_height = static_cast<int>(image_width / aspect_ratio);
             }else if (image_height > 0 && image_width <= 0) {
@@ -64,6 +68,13 @@ class Camera{
             auto View_port_lower_left_corner = camera_center - viewport_u/2 - viewport_v/2 - vec3(0,0,focal_length);
             pixel00_loc=View_port_lower_left_corner+0.5*(pixel_delta_u+pixel_delta_v);
         }  
+        Ray get_ray(int i,int j){
+            auto offset=sample_square();
+            auto pixel_sample=pixel00_loc+((i + offset.get_x()) * pixel_delta_u)+((j + offset.get_y()) * pixel_delta_v);
+            auto ray_origin=camera_center;
+            auto ray_direction=pixel_sample- ray_origin;
+            return Ray(ray_origin,ray_direction);
+        }
         vec3 ray_color(const Ray& r, Hittable& world) {
             HitRecord record;
             if(world.hit(r,Interval(0,infinity), record)) {
@@ -74,5 +85,8 @@ class Camera{
             return (1.0f - t) * color(1.0f, 1.0f, 1.0f) + t * color(0.5f, 0.7f, 1.0f);
         }
 
+        vec3 sample_square(){
+            return vec3(random_float() - 0.5,random_float() - 0.5,0);
+        }
                      
 };  

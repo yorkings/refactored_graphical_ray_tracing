@@ -28,6 +28,7 @@ CMakeFiles/GraphicsRework.dir/main.cpp.o: /home/yorkingstar/Documents/portfolio-
   /home/yorkingstar/Documents/portfolio-projects/C\ projects/c++/graphics_rework_full_understanding/headers/general.h \
   /home/yorkingstar/Documents/portfolio-projects/C\ projects/c++/graphics_rework_full_understanding/headers/hitter.h \
   /home/yorkingstar/Documents/portfolio-projects/C\ projects/c++/graphics_rework_full_understanding/headers/interval.h \
+  /home/yorkingstar/Documents/portfolio-projects/C\ projects/c++/graphics_rework_full_understanding/headers/ray.h \
   /home/yorkingstar/Documents/portfolio-projects/C\ projects/c++/graphics_rework_full_understanding/headers/sphere.h \
   /home/yorkingstar/Documents/portfolio-projects/C\ projects/c++/graphics_rework_full_understanding/headers/vec3.h \
   /usr/include/alloca.h \
@@ -388,8 +389,6 @@ CMakeFiles/GraphicsRework.dir/main.cpp.o: /home/yorkingstar/Documents/portfolio-
 
 /usr/include/c++/16/tr1/legendre_function.tcc:
 
-/usr/include/c++/16/bits/chrono.h:
-
 /usr/include/c++/16/bits/basic_string.tcc:
 
 /usr/include/wctype.h:
@@ -409,6 +408,8 @@ CMakeFiles/GraphicsRework.dir/main.cpp.o: /home/yorkingstar/Documents/portfolio-
 /usr/include/c++/16/bits/atomic_lockfree_defines.h:
 
 /usr/include/bits/cpu-set.h:
+
+/home/yorkingstar/Documents/portfolio-projects/C\ projects/c++/graphics_rework_full_understanding/headers/ray.h:
 
 /usr/include/bits/stdlib-float.h:
 
@@ -550,7 +551,9 @@ CMakeFiles/GraphicsRework.dir/main.cpp.o:
 
 /usr/include/c++/16/bits/ostream_insert.h:
 
-/usr/include/alloca.h:
+/usr/include/bits/mathcalls-macros.h:
+
+/usr/include/asm-generic/int-ll64.h:
 
 /home/yorkingstar/Documents/portfolio-projects/C\ projects/c++/graphics_rework_full_understanding/headers/vec3.h:
 
@@ -564,6 +567,10 @@ CMakeFiles/GraphicsRework.dir/main.cpp.o:
 
 /usr/include/c++/16/bits/requires_hosted.h:
 
+/home/yorkingstar/Documents/portfolio-projects/C\ projects/c++/graphics_rework_full_understanding/headers/hitter.h:
+
+/usr/include/c++/16/bits/stdexcept_throw.h:
+
 /home/yorkingstar/Documents/portfolio-projects/C\ projects/c++/graphics_rework_full_understanding/headers/interval.h:
 
 /usr/lib/gcc/x86_64-redhat-linux/16/crtend.o:
@@ -575,6 +582,10 @@ CMakeFiles/GraphicsRework.dir/main.cpp.o:
 /usr/include/c++/16/clocale:
 
 /usr/include/asm-generic/errno-base.h:
+
+/usr/include/c++/16/tr1/exp_integral.tcc:
+
+/usr/include/bits/floatn-common.h:
 
 /usr/include/bits/types/struct_FILE.h:
 
@@ -605,10 +616,6 @@ CMakeFiles/GraphicsRework.dir/main.cpp.o:
 /usr/include/bits/libc-header-start.h:
 
 /usr/lib64/crt1.o:
-
-/usr/include/bits/mathcalls-macros.h:
-
-/usr/include/asm-generic/int-ll64.h:
 
 /usr/include/bits/types/mbstate_t.h:
 
@@ -646,9 +653,7 @@ CMakeFiles/GraphicsRework.dir/main.cpp.o:
 
 /usr/include/c++/16/bits/postypes.h:
 
-/usr/include/c++/16/bits/stdexcept_throw.h:
-
-/home/yorkingstar/Documents/portfolio-projects/C\ projects/c++/graphics_rework_full_understanding/headers/hitter.h:
+/usr/include/alloca.h:
 
 /usr/include/bits/fp-logb.h:
 
@@ -707,6 +712,8 @@ CMakeFiles/GraphicsRework.dir/main.cpp.o:
 /usr/include/bits/mathcalls-helper-functions.h:
 
 /usr/include/c++/16/bits/ptr_traits.h:
+
+/usr/include/c++/16/bits/chrono.h:
 
 /usr/include/c++/16/x86_64-redhat-linux/bits/gthr.h:
 
@@ -947,7 +954,3 @@ CMakeFiles/GraphicsRework.dir/main.cpp.o:
 /usr/lib64/crti.o:
 
 /usr/include/c++/16/stdexcept:
-
-/usr/include/bits/floatn-common.h:
-
-/usr/include/c++/16/tr1/exp_integral.tcc:
