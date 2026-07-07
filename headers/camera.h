@@ -33,7 +33,7 @@ class Camera{
                     color pixel_color(0,0,0);
                     for(int s=0;s<samples_per_pixel;s++){
                         auto ray=get_ray(i,j);
-                        pixel_color+=ray_color(ray,world);
+                        pixel_color+=ray_color(ray,world,50);
                     }
                     pixel_color/=static_cast<float>(samples_per_pixel);
                     write_color(image,pixel_color);
@@ -75,10 +75,12 @@ class Camera{
             auto ray_direction=pixel_sample- ray_origin;
             return Ray(ray_origin,ray_direction);
         }
-        vec3 ray_color(const Ray& r, Hittable& world) {
+        color ray_color(const Ray& r, Hittable& world,int depth){ 
             HitRecord record;
             if(world.hit(r,Interval(0,infinity), record)) {
-                return 0.5f * (record.normal + vec3(1, 1, 1));
+                vec3 direction = random_on_hemisphere(record.normal);
+                Ray scattered_ray(record.point, direction); 
+                return 0.5f * ray_color(scattered_ray, world, depth - 1);
             }
             vec3 unit_direction =unit_vector(r.get_direction());
             float t = 0.5f * (unit_direction.get_y() + 1.0f);

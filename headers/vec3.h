@@ -81,8 +81,8 @@ inline Vector3d random_vector(float min,float max){
 inline Vector3d random_unit_vector(){
     while(true){
         auto p=random_vector(-1,1);
-        if(p.squared_length()>=1) continue;
-        return unit_vector(p);
+        auto len_squared=p.squared_length();
+        if(1e-8<len_squared && len_squared<1)return unit_vector(p);
     }
 }
 
