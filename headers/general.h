@@ -4,7 +4,8 @@
 #include <memory>
 #include <limits>
 #include <cmath>    
-#include <random>       
+#include <random>   
+#include <omp.h>    
 
 using std::shared_ptr;
 using std::make_shared;
@@ -16,6 +17,8 @@ std::uniform_real_distribution<float> dis(0.0f, 1.0f);
 const float infinity = std::numeric_limits<float>::infinity();
 #include "interval.h"
 inline float random_float() {
+    thread_local std::mt19937 gen(std::random_device{}());
+    thread_local std::uniform_real_distribution<float> dis(0.0f, 1.0f);
     return dis(gen);
 }
 

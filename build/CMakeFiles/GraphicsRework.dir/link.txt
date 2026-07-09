@@ -1,1 +1,1 @@
-/usr/bin/c++ -Wl,--dependency-file=CMakeFiles/GraphicsRework.dir/link.d CMakeFiles/GraphicsRework.dir/main.cpp.o -o "/home/yorkingstar/Documents/portfolio-projects/C projects/c++/graphics_rework_full_understanding/GraphicsRework"
+/usr/bin/c++ -Wl,--dependency-file=CMakeFiles/GraphicsRework.dir/link.d CMakeFiles/GraphicsRework.dir/main.cpp.o -o "/home/yorkingstar/Documents/portfolio-projects/C projects/c++/graphics_rework_full_understanding/GraphicsRework"  /usr/lib/gcc/x86_64-redhat-linux/16/libgomp.so /usr/lib64/libpthread.a

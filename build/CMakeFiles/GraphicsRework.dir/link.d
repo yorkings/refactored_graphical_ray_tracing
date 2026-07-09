@@ -3,6 +3,8 @@
   /usr/lib/gcc/x86_64-redhat-linux/16/../../../../lib64/crti.o \
   /usr/lib/gcc/x86_64-redhat-linux/16/crtbegin.o \
   CMakeFiles/GraphicsRework.dir/main.cpp.o \
+  /usr/lib/gcc/x86_64-redhat-linux/16/libgomp.so \
+  /usr/lib64/libpthread.a \
   /usr/lib/gcc/x86_64-redhat-linux/16/libstdc++.so \
   /usr/lib/gcc/x86_64-redhat-linux/16/../../../../lib64/libm.so \
   /usr/lib/gcc/x86_64-redhat-linux/16/../../../../lib64/libm.so \
@@ -45,6 +47,10 @@
 /usr/lib/gcc/x86_64-redhat-linux/16/crtbegin.o:
 
 CMakeFiles/GraphicsRework.dir/main.cpp.o:
+
+/usr/lib/gcc/x86_64-redhat-linux/16/libgomp.so:
+
+/usr/lib64/libpthread.a:
 
 /usr/lib/gcc/x86_64-redhat-linux/16/libstdc++.so:
 

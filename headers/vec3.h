@@ -29,6 +29,12 @@ class Vector3d{
         inline Vector3d &operator/=(const float v){return *this*=1/v;}
         inline float squared_length()const{return x*x+y*y+z*z;}
         inline float length()const{return std::sqrt(x*x+y*y+z*z);}
+        bool near_zero() const {
+            // Return true if the vector is close to zero in all dimensions.
+            auto s = 1e-8;
+            return (std::fabs(x) < s) && (std::fabs(y) < s) && (std::fabs(z) < s);
+        }
+
 }; 
 
 inline Vector3d operator+(const Vector3d &v1, const Vector3d &v2) {
@@ -105,5 +111,6 @@ inline Vector3d refract(const Vector3d& uv, const Vector3d& n, float etai_over_e
     return r_out_perp + r_out_parallel;
 }
 
+//
 
 

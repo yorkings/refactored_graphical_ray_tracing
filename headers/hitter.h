@@ -1,9 +1,13 @@
 #pragma once
 #include "general.h"
 using vec3=Vector3d;
+
+class Material;
+
 struct HitRecord {
     vec3 point;
     vec3 normal;
+    shared_ptr<Material>mat;
     float t;
     bool front_face;
     inline void set_face_normal(const Ray& r, const vec3& outward_normal) {

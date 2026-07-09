@@ -3,9 +3,11 @@
 #include "general.h"
 using vec3=Vector3d;
 class Ray{
-    public:
+    private:
         vec3 origin;
         vec3 direction;
+    public:       
+        Ray() {};
         Ray(const vec3 &o,const vec3 &d):origin(o),direction(d){};
         inline vec3 get_origin() const { return origin; }
         inline vec3 get_direction() const { return direction; }

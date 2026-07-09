@@ -96,6 +96,8 @@ GraphicsRework_EXTERNAL_OBJECTS =
 /home/yorkingstar/Documents/portfolio-projects/C\ projects/c++/graphics_rework_full_understanding/GraphicsRework: CMakeFiles/GraphicsRework.dir/main.cpp.o
 /home/yorkingstar/Documents/portfolio-projects/C\ projects/c++/graphics_rework_full_understanding/GraphicsRework: CMakeFiles/GraphicsRework.dir/build.make
 /home/yorkingstar/Documents/portfolio-projects/C\ projects/c++/graphics_rework_full_understanding/GraphicsRework: CMakeFiles/GraphicsRework.dir/compiler_depend.ts
+/home/yorkingstar/Documents/portfolio-projects/C\ projects/c++/graphics_rework_full_understanding/GraphicsRework: /usr/lib/gcc/x86_64-redhat-linux/16/libgomp.so
+/home/yorkingstar/Documents/portfolio-projects/C\ projects/c++/graphics_rework_full_understanding/GraphicsRework: /usr/lib64/libpthread.a
 /home/yorkingstar/Documents/portfolio-projects/C\ projects/c++/graphics_rework_full_understanding/GraphicsRework: CMakeFiles/GraphicsRework.dir/link.txt
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir="/home/yorkingstar/Documents/portfolio-projects/C projects/c++/graphics_rework_full_understanding/build/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_2) "Linking CXX executable \"/home/yorkingstar/Documents/portfolio-projects/C projects/c++/graphics_rework_full_understanding/GraphicsRework\""
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/GraphicsRework.dir/link.txt --verbose=$(VERBOSE)

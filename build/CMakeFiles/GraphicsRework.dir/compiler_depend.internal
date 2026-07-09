@@ -18,9 +18,11 @@
  /usr/lib/gcc/x86_64-redhat-linux/16/libatomic_asneeded.so
  /usr/lib/gcc/x86_64-redhat-linux/16/libgcc.a
  /usr/lib/gcc/x86_64-redhat-linux/16/libgcc_s.so
+ /usr/lib/gcc/x86_64-redhat-linux/16/libgomp.so
  /usr/lib/gcc/x86_64-redhat-linux/16/libstdc++.so
  /usr/lib64/libatomic.so.1.2.0
  /usr/lib64/libc_nonshared.a
+ /usr/lib64/libpthread.a
  /home/yorkingstar/Documents/portfolio-projects/C projects/c++/graphics_rework_full_understanding/build/CMakeFiles/GraphicsRework.dir/main.cpp.o
 
 CMakeFiles/GraphicsRework.dir/main.cpp.o
@@ -30,6 +32,7 @@ CMakeFiles/GraphicsRework.dir/main.cpp.o
  /home/yorkingstar/Documents/portfolio-projects/C projects/c++/graphics_rework_full_understanding/headers/general.h
  /home/yorkingstar/Documents/portfolio-projects/C projects/c++/graphics_rework_full_understanding/headers/hitter.h
  /home/yorkingstar/Documents/portfolio-projects/C projects/c++/graphics_rework_full_understanding/headers/interval.h
+ /home/yorkingstar/Documents/portfolio-projects/C projects/c++/graphics_rework_full_understanding/headers/materials.h
  /home/yorkingstar/Documents/portfolio-projects/C projects/c++/graphics_rework_full_understanding/headers/ray.h
  /home/yorkingstar/Documents/portfolio-projects/C projects/c++/graphics_rework_full_understanding/headers/sphere.h
  /home/yorkingstar/Documents/portfolio-projects/C projects/c++/graphics_rework_full_understanding/headers/vec3.h
@@ -75,7 +78,9 @@ CMakeFiles/GraphicsRework.dir/main.cpp.o
  /usr/include/bits/stdint-intn.h
  /usr/include/bits/stdint-least.h
  /usr/include/bits/stdint-uintn.h
+ /usr/include/bits/stdio.h
  /usr/include/bits/stdio_lim.h
+ /usr/include/bits/stdlib-bsearch.h
  /usr/include/bits/stdlib-float.h
  /usr/include/bits/struct_mutex.h
  /usr/include/bits/struct_rwlock.h
@@ -318,6 +323,7 @@ CMakeFiles/GraphicsRework.dir/main.cpp.o
  /usr/include/time.h
  /usr/include/wchar.h
  /usr/include/wctype.h
+ /usr/lib/gcc/x86_64-redhat-linux/16/include/omp.h
  /usr/lib/gcc/x86_64-redhat-linux/16/include/stdarg.h
  /usr/lib/gcc/x86_64-redhat-linux/16/include/stddef.h
  /usr/lib/gcc/x86_64-redhat-linux/16/include/stdint.h

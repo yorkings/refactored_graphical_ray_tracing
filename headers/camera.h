@@ -4,41 +4,46 @@
 #include "coloring.h"
 #include "hitter.h"
 #include "sphere.h"
+#include "materials.h"
 using vec3 =Vector3d;
 
 class Camera{
     public:
+        std::string filename;
         int image_width=0;
         int image_height=0;
         float focal_length=1.0f;
         int samples_per_pixel=10;
-        void render(){
-            initialize();
-            
-            std::string filename="data/output_"+get_current_time()+".ppm";
-            std::ofstream image(filename,std::ios::binary);
-            
+        int max_depth=50;        
+        void render(HitList world){
+            initialize();            
+            std::ofstream image(filename,std::ios::binary);            
             if(!image){
                 std::cerr<<"Error: Could not open file for writing: "<<filename<<std::endl;
                 return;
             }
-            HitList world;
-            world.add(make_shared<Sphere>(vec3(0,0,-1),0.5f));
-            world.add(make_shared<Sphere>(vec3(0,-100.5f,-1),100));
-
             image<<"P6\n"<<image_width<<' '<<image_height<<"\n255\n";
+            std::vector<color> image_buffer(image_width * image_height);
+            #pragma omp parallel for schedule(static)
             for(int j=image_height-1;j>=0;j--){
                 std::cerr<<"\rScanlines remaining: "<<j<<' '<<std::flush;
                 for(int i=0;i<image_width;i++){
                     color pixel_color(0,0,0);
                     for(int s=0;s<samples_per_pixel;s++){
                         auto ray=get_ray(i,j);
-                        pixel_color+=ray_color(ray,world,50);
+                        pixel_color+=ray_color(ray,world,max_depth);
                     }
-                    pixel_color/=static_cast<float>(samples_per_pixel);
-                    write_color(image,pixel_color);
+                    pixel_color/=static_cast<float>(samples_per_pixel);//average the color over the samples
+                    image_buffer[j * image_width + i] = pixel_color;
                 }
             }
+            for(int j=image_height-1;j>=0;j--){
+                for(int i=0;i<image_width;i++){
+                    write_color(image,image_buffer[j * image_width + i]);
+                }
+            }
+            std::cerr<<"\nDone.\n";
+
         }
     private:
         
@@ -77,10 +82,15 @@ class Camera{
         }
         color ray_color(const Ray& r, Hittable& world,int depth){ 
             HitRecord record;
+
+            if(depth<=0)return color(0,0,0);
             if(world.hit(r,Interval(0,infinity), record)) {
-                vec3 direction = random_on_hemisphere(record.normal);
-                Ray scattered_ray(record.point, direction); 
-                return 0.5f * ray_color(scattered_ray, world, depth - 1);
+                Ray scattered;
+                color attenuation;
+                if(record.mat->scatter(r,record,attenuation,scattered)){
+                    return attenuation*ray_color(scattered,world,depth-1);
+                }
+                return color(0,0,0);
             }
             vec3 unit_direction =unit_vector(r.get_direction());
             float t = 0.5f * (unit_direction.get_y() + 1.0f);

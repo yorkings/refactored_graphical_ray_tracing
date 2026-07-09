@@ -17,9 +17,11 @@
   /usr/lib/gcc/x86_64-redhat-linux/16/libatomic_asneeded.so \
   /usr/lib/gcc/x86_64-redhat-linux/16/libgcc.a \
   /usr/lib/gcc/x86_64-redhat-linux/16/libgcc_s.so \
+  /usr/lib/gcc/x86_64-redhat-linux/16/libgomp.so \
   /usr/lib/gcc/x86_64-redhat-linux/16/libstdc++.so \
   /usr/lib64/libatomic.so.1.2.0 \
   /usr/lib64/libc_nonshared.a \
+  /usr/lib64/libpthread.a \
   CMakeFiles/GraphicsRework.dir/main.cpp.o
 
 CMakeFiles/GraphicsRework.dir/main.cpp.o: /home/yorkingstar/Documents/portfolio-projects/C\ projects/c++/graphics_rework_full_understanding/main.cpp \
@@ -28,6 +30,7 @@ CMakeFiles/GraphicsRework.dir/main.cpp.o: /home/yorkingstar/Documents/portfolio-
   /home/yorkingstar/Documents/portfolio-projects/C\ projects/c++/graphics_rework_full_understanding/headers/general.h \
   /home/yorkingstar/Documents/portfolio-projects/C\ projects/c++/graphics_rework_full_understanding/headers/hitter.h \
   /home/yorkingstar/Documents/portfolio-projects/C\ projects/c++/graphics_rework_full_understanding/headers/interval.h \
+  /home/yorkingstar/Documents/portfolio-projects/C\ projects/c++/graphics_rework_full_understanding/headers/materials.h \
   /home/yorkingstar/Documents/portfolio-projects/C\ projects/c++/graphics_rework_full_understanding/headers/ray.h \
   /home/yorkingstar/Documents/portfolio-projects/C\ projects/c++/graphics_rework_full_understanding/headers/sphere.h \
   /home/yorkingstar/Documents/portfolio-projects/C\ projects/c++/graphics_rework_full_understanding/headers/vec3.h \
@@ -73,7 +76,9 @@ CMakeFiles/GraphicsRework.dir/main.cpp.o: /home/yorkingstar/Documents/portfolio-
   /usr/include/bits/stdint-intn.h \
   /usr/include/bits/stdint-least.h \
   /usr/include/bits/stdint-uintn.h \
+  /usr/include/bits/stdio.h \
   /usr/include/bits/stdio_lim.h \
+  /usr/include/bits/stdlib-bsearch.h \
   /usr/include/bits/stdlib-float.h \
   /usr/include/bits/struct_mutex.h \
   /usr/include/bits/struct_rwlock.h \
@@ -316,6 +321,7 @@ CMakeFiles/GraphicsRework.dir/main.cpp.o: /home/yorkingstar/Documents/portfolio-
   /usr/include/time.h \
   /usr/include/wchar.h \
   /usr/include/wctype.h \
+  /usr/lib/gcc/x86_64-redhat-linux/16/include/omp.h \
   /usr/lib/gcc/x86_64-redhat-linux/16/include/stdarg.h \
   /usr/lib/gcc/x86_64-redhat-linux/16/include/stddef.h \
   /usr/lib/gcc/x86_64-redhat-linux/16/include/stdint.h
@@ -385,23 +391,13 @@ CMakeFiles/GraphicsRework.dir/main.cpp.o: /home/yorkingstar/Documents/portfolio-
 
 /usr/include/c++/16/tr1/special_function_util.h:
 
-/usr/include/c++/16/tr1/modified_bessel_func.tcc:
-
 /usr/include/c++/16/tr1/legendre_function.tcc:
 
-/usr/include/c++/16/bits/basic_string.tcc:
+/usr/include/c++/16/tr1/ell_integral.tcc:
 
-/usr/include/wctype.h:
+/usr/include/c++/16/tr1/beta_function.tcc:
 
-/usr/include/sched.h:
-
-/usr/include/c++/16/tr1/hypergeometric.tcc:
-
-/usr/include/bits/fp-fast.h:
-
-/usr/include/c++/16/bits/basic_string.h:
-
-/usr/include/c++/16/ios:
+/usr/include/c++/16/system_error:
 
 /usr/include/c++/16/bits/basic_ios.h:
 
@@ -435,8 +431,6 @@ CMakeFiles/GraphicsRework.dir/main.cpp.o:
 
 /usr/include/c++/16/string:
 
-/usr/lib/gcc/x86_64-redhat-linux/16/libatomic.so:
-
 /usr/include/bits/types/struct_tm.h:
 
 /usr/include/bits/types/struct_timespec.h:
@@ -449,16 +443,6 @@ CMakeFiles/GraphicsRework.dir/main.cpp.o:
 
 /usr/lib/gcc/x86_64-redhat-linux/16/libatomic_asneeded.so:
 
-/usr/include/gnu/stubs.h:
-
-/usr/include/c++/16/x86_64-redhat-linux/bits/c++locale.h:
-
-/usr/include/c++/16/bits/std_abs.h:
-
-/usr/include/c++/16/bits/cxxabi_forced.h:
-
-/usr/include/c++/16/cwctype:
-
 /usr/include/bits/types/sigset_t.h:
 
 /usr/include/c++/16/bits/memory_resource.h:
@@ -467,10 +451,6 @@ CMakeFiles/GraphicsRework.dir/main.cpp.o:
 
 /usr/include/bits/mathcalls.h:
 
-/usr/include/c++/16/bits/char_traits.h:
-
-/usr/include/bits/types/__fpos_t.h:
-
 /usr/include/bits/types/__mbstate_t.h:
 
 /usr/include/bits/stdio_lim.h:
@@ -478,6 +458,10 @@ CMakeFiles/GraphicsRework.dir/main.cpp.o:
 /usr/lib/gcc/x86_64-redhat-linux/16/libgcc.a:
 
 /usr/include/bits/types/__locale_t.h:
+
+/usr/include/c++/16/string_view:
+
+/usr/include/bits/types/__fpos64_t.h:
 
 /usr/include/linux/posix_types.h:
 
@@ -500,6 +484,8 @@ CMakeFiles/GraphicsRework.dir/main.cpp.o:
 /usr/include/c++/16/cerrno:
 
 /usr/include/c++/16/bits/locale_classes.tcc:
+
+/usr/include/bits/stdio.h:
 
 /usr/include/c++/16/tr1/poly_hermite.tcc:
 
@@ -551,11 +537,27 @@ CMakeFiles/GraphicsRework.dir/main.cpp.o:
 
 /usr/include/c++/16/bits/ostream_insert.h:
 
+/usr/include/c++/16/tr1/modified_bessel_func.tcc:
+
+/usr/lib64/libpthread.a:
+
 /usr/include/bits/mathcalls-macros.h:
 
 /usr/include/asm-generic/int-ll64.h:
 
-/home/yorkingstar/Documents/portfolio-projects/C\ projects/c++/graphics_rework_full_understanding/headers/vec3.h:
+/usr/include/bits/types/time_t.h:
+
+/usr/include/c++/16/bits/localefwd.h:
+
+/usr/include/c++/16/bits/ostream.tcc:
+
+/usr/include/c++/16/bits/shared_ptr_atomic.h:
+
+/usr/include/c++/16/bits/ptr_traits.h:
+
+/usr/include/bits/math-vector.h:
+
+/home/yorkingstar/Documents/portfolio-projects/C\ projects/c++/graphics_rework_full_understanding/headers/coloring.h:
 
 /usr/include/bits/types/locale_t.h:
 
@@ -587,19 +589,35 @@ CMakeFiles/GraphicsRework.dir/main.cpp.o:
 
 /usr/include/bits/floatn-common.h:
 
+/usr/include/bits/long-double.h:
+
+/home/yorkingstar/Documents/portfolio-projects/C\ projects/c++/graphics_rework_full_understanding/headers/vec3.h:
+
 /usr/include/bits/types/struct_FILE.h:
 
 /usr/include/c++/16/bits/stdexcept_except.h:
 
+/home/yorkingstar/Documents/portfolio-projects/C\ projects/c++/graphics_rework_full_understanding/headers/materials.h:
+
 /usr/include/asm/types.h:
+
+/usr/include/bits/stdlib-bsearch.h:
 
 /home/yorkingstar/Documents/portfolio-projects/C\ projects/c++/graphics_rework_full_understanding/headers/camera.h:
 
-/usr/include/c++/16/tr1/beta_function.tcc:
-
 /lib64/libgcc_s.so.1:
 
+/usr/include/bits/mathcalls-helper-functions.h:
+
+/usr/include/c++/16/bits/specfun.h:
+
 /usr/lib/gcc/x86_64-redhat-linux/16/crtbegin.o:
+
+/usr/lib/gcc/x86_64-redhat-linux/16/libatomic.so:
+
+/usr/include/bits/types/__fpos_t.h:
+
+/usr/include/c++/16/bits/char_traits.h:
 
 /usr/include/bits/waitstatus.h:
 
@@ -633,6 +651,10 @@ CMakeFiles/GraphicsRework.dir/main.cpp.o:
 
 /usr/include/bits/endianness.h:
 
+/usr/include/c++/16/tr1/bessel_function.tcc:
+
+/usr/include/bits/libm-simd-decl-stubs.h:
+
 /usr/include/ctype.h:
 
 /usr/include/c++/16/bits/stl_tempbuf.h:
@@ -663,8 +685,6 @@ CMakeFiles/GraphicsRework.dir/main.cpp.o:
 
 /usr/include/c++/16/bits/exception_ptr.h:
 
-/usr/include/c++/16/system_error:
-
 /usr/include/bits/time.h:
 
 /usr/include/asm/posix_types.h:
@@ -672,6 +692,8 @@ CMakeFiles/GraphicsRework.dir/main.cpp.o:
 /usr/include/bits/uintn-identity.h:
 
 /usr/lib/gcc/x86_64-redhat-linux/16/include/stddef.h:
+
+/usr/lib/gcc/x86_64-redhat-linux/16/libgomp.so:
 
 /usr/include/bits/typesizes.h:
 
@@ -689,29 +711,41 @@ CMakeFiles/GraphicsRework.dir/main.cpp.o:
 
 /usr/include/bits/floatn.h:
 
-/usr/include/bits/long-double.h:
+/usr/include/wctype.h:
+
+/usr/include/sched.h:
+
+/usr/include/c++/16/tr1/hypergeometric.tcc:
+
+/usr/include/bits/fp-fast.h:
+
+/usr/include/c++/16/bits/basic_string.tcc:
+
+/usr/include/stdio.h:
+
+/usr/include/bits/wordsize.h:
+
+/usr/include/c++/16/stdexcept:
+
+/usr/lib64/crti.o:
 
 /usr/include/bits/iscanonical.h:
 
 /usr/include/c++/16/bits/ios_base.h:
 
-/home/yorkingstar/Documents/portfolio-projects/C\ projects/c++/graphics_rework_full_understanding/headers/coloring.h:
+/usr/include/c++/16/bits/basic_string.h:
 
-/usr/include/bits/math-vector.h:
+/usr/include/c++/16/ios:
 
-/usr/include/bits/types/time_t.h:
+/usr/include/gnu/stubs.h:
 
-/usr/include/c++/16/bits/localefwd.h:
+/usr/include/c++/16/x86_64-redhat-linux/bits/c++locale.h:
 
-/usr/include/c++/16/bits/ostream.tcc:
+/usr/include/c++/16/bits/std_abs.h:
 
-/usr/include/c++/16/bits/shared_ptr_atomic.h:
+/usr/include/c++/16/bits/cxxabi_forced.h:
 
-/usr/include/c++/16/bits/specfun.h:
-
-/usr/include/bits/mathcalls-helper-functions.h:
-
-/usr/include/c++/16/bits/ptr_traits.h:
+/usr/include/c++/16/cwctype:
 
 /usr/include/c++/16/bits/chrono.h:
 
@@ -753,6 +787,8 @@ CMakeFiles/GraphicsRework.dir/main.cpp.o:
 
 /usr/include/c++/16/bits/new_throw.h:
 
+/usr/lib/gcc/x86_64-redhat-linux/16/include/omp.h:
+
 /usr/include/c++/16/bits/locale_conv.h:
 
 /usr/include/c++/16/bits/streambuf.tcc:
@@ -776,10 +812,6 @@ CMakeFiles/GraphicsRework.dir/main.cpp.o:
 /usr/include/c++/16/bits/move.h:
 
 /usr/include/c++/16/bits/nested_exception.h:
-
-/usr/include/bits/types/__fpos64_t.h:
-
-/usr/include/c++/16/string_view:
 
 /usr/include/c++/16/bits/new_allocator.h:
 
@@ -810,10 +842,6 @@ CMakeFiles/GraphicsRework.dir/main.cpp.o:
 /usr/include/bits/stdint-least.h:
 
 /usr/include/c++/16/bits/shared_ptr_base.h:
-
-/usr/include/bits/libm-simd-decl-stubs.h:
-
-/usr/include/c++/16/tr1/bessel_function.tcc:
 
 /usr/include/c++/16/bits/sstream.tcc:
 
@@ -913,13 +941,11 @@ CMakeFiles/GraphicsRework.dir/main.cpp.o:
 
 /usr/include/c++/16/ext/concurrence.h:
 
-/usr/include/c++/16/bits/charconv.h:
-
 /usr/include/bits/atomic_wide_counter.h:
 
-/usr/include/c++/16/ext/string_conversions.h:
+/usr/include/c++/16/bits/charconv.h:
 
-/usr/include/c++/16/tr1/ell_integral.tcc:
+/usr/include/c++/16/ext/string_conversions.h:
 
 /usr/include/bits/thread-shared-types.h:
 
@@ -946,11 +972,3 @@ CMakeFiles/GraphicsRework.dir/main.cpp.o:
 /usr/include/c++/16/random:
 
 /usr/include/c++/16/sstream:
-
-/usr/include/stdio.h:
-
-/usr/include/bits/wordsize.h:
-
-/usr/lib64/crti.o:
-
-/usr/include/c++/16/stdexcept:
