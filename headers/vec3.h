@@ -76,6 +76,7 @@ inline Vector3d unit_vector(Vector3d v){
     return len>0 ? (v/len) : Vector3d(0,0,0);
 }
 //random vector generation
+
 inline Vector3d random_vector(){
     return Vector3d(random_float(),random_float(),random_float());
 }
@@ -91,6 +92,14 @@ inline Vector3d random_unit_vector(){
         if(1e-8<len_squared && len_squared<1)return unit_vector(p);
     }
 }
+inline Vector3d random_in_unit_disk() {
+    while (true) {
+        auto p = Vector3d(random_float(-1,1), random_float(-1,1), 0);
+        if (p.squared_length() < 1)
+            return p;
+    }
+}
+
 
 inline Vector3d random_on_hemisphere(const Vector3d& normal) {
     Vector3d in_unit_sphere = random_unit_vector();
