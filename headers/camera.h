@@ -14,7 +14,11 @@ class Camera{
         int image_height=0;
         float focal_length=1.0f;
         int samples_per_pixel=10;
-        int max_depth=50;        
+        int max_depth=50;  
+        float vfov=90;//vertical view angle  
+        point3 lookfrom = point3(0,0,0);   // Point camera is looking from
+        point3 lookat   = point3(0,0,-1);  // Point camera is looking at
+        vec3   vup      = vec3(0,1,0);     // Camera-relative "up" direction       
         void render(HitList world){
             initialize();            
             std::ofstream image(filename,std::ios::binary);            
@@ -51,7 +55,8 @@ class Camera{
         vec3 pixel00_loc;//location of the center of the pixel at (0,0) in the world 
         vec3 pixel_delta_u; 
         vec3 pixel_delta_v;   
-        float pixel_sample_scale;                             
+        float pixel_sample_scale;            
+        vec3   u, v, w;              // Camera frame basis vectors                      
         void initialize(){
             auto aspect_ratio = 16.0f/9.0f;
             pixel_sample_scale=1.0/samples_per_pixel;
@@ -64,6 +69,9 @@ class Camera{
                 image_height = static_cast<int>(image_width / aspect_ratio); // Calculate height based on aspect ratio
             }
             auto viewport_height = 2.0f;
+            auto theta = degrees_to_radians(vfov);
+            auto h = std::tan(theta/2);
+            auto viewport_height = 2 * h * focal_length;
             auto viewport_width = (image_width / static_cast<float>(image_height)) * viewport_height;
             camera_center = vec3(0,0,0);
             auto viewport_u = vec3(viewport_width,0,0);

@@ -55,6 +55,10 @@ int main() {
     cam.focal_length = 0.4f; // Set the desired focal length
     cam.max_depth = 50; // Set the maximum depth for ray tracing
     cam.samples_per_pixel=200;
+    cam.vfov     = 90;
+    cam.lookfrom = point3(-2,2,1);
+    cam.lookat   = point3(0,0,-1);
+    cam.vup      = vec3(0,1,0);
     cam.render(world); // Pass the world to the render function
     return 0;
 }
