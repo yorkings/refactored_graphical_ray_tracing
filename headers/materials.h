@@ -20,7 +20,7 @@ class Lambertian:public Material{
         bool scatter(const Ray& r_in, const HitRecord& rec, color& attenuation, Ray& scattered)const override {
             auto scatter_direction = rec.normal + random_unit_vector();
              if (scatter_direction.near_zero()){scatter_direction = rec.normal;}
-            scattered = Ray(rec.point, scatter_direction);
+            scattered = Ray(rec.point, scatter_direction,r_in.get_time());
             attenuation = albedo;
             return true;
         }        
@@ -28,16 +28,18 @@ class Lambertian:public Material{
 
 class metal : public Material {
   public:
-    metal(const color& albedo) : albedo(albedo) {}
+    metal(const color& albedo, float fuzz) : albedo(albedo), fuzz(fuzz) {}
     bool scatter(const Ray& r_in, const HitRecord& rec, color& attenuation, Ray & scattered)
     const override {
         vec3 reflected = reflect(r_in.get_direction(), rec.normal);
-        scattered = Ray(rec.point, reflected);
+        reflected =unit_vector(reflected)+(fuzz*random_unit_vector());
+        scattered = Ray(rec.point, reflected,r_in.get_time());
         attenuation = albedo;
-        return true;
+        return (dot(scattered.get_direction(), rec.normal) > 0);
     }
   private:
     color albedo;
+    float fuzz;
 };
 
 class dielectric : public Material {
@@ -52,11 +54,11 @@ class dielectric : public Material {
         float unrefractable=ri * sin_theta > 1.0f;
         if (unrefractable || reflectance(cos_theta, ri) > random_float()) {
             vec3 reflected = reflect(unit_direction, rec.normal);
-            scattered = Ray(rec.point, reflected);
+            scattered = Ray(rec.point, reflected,r_in.get_time());
             return true;
         }
         vec3 refracted = refract(unit_direction, rec.normal, ri);
-        scattered = Ray(rec.point, refracted);
+        scattered = Ray(rec.point, refracted,r_in.get_time());
         return true;
 
     }

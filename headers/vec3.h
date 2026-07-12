@@ -121,5 +121,14 @@ inline Vector3d refract(const Vector3d& uv, const Vector3d& n, float etai_over_e
 }
 
 //
+using color = Vector3d;
+using vec3 =Vector3d;
+using point3=Vector3d;
 
+inline color random_color() {
+    return color(random_float(), random_float(), random_float());
+}
 
+inline color random_color(float min, float max) {
+    return color(random_float(min, max), random_float(min, max), random_float(min, max));
+}

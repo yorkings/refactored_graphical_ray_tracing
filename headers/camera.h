@@ -5,8 +5,6 @@
 #include "hitter.h"
 #include "sphere.h"
 #include "materials.h"
-using vec3 =Vector3d;
-using point3=Vector3d;
 
 class Camera{
     public:
@@ -31,40 +29,83 @@ class Camera{
             }
             image<<"P6\n"<<image_width<<' '<<image_height<<"\n255\n";
             std::vector<color> image_buffer(image_width * image_height);
+            // Get number of threads
+            int num_threads = 0;
+            #pragma omp parallel
+            {
+                #pragma omp single
+                num_threads = omp_get_num_threads();
+            }
+            std::cerr << "\n=== Rendering Configuration ===" << std::endl;
+            std::cerr << "Image: " << image_width << "x" << image_height << std::endl;
+            std::cerr << "Samples: " << samples_per_pixel << std::endl;
+            std::cerr << "Threads: " << num_threads << std::endl;
+            std::cerr << "================================" << std::endl;
+            std::cerr << "\nProgress:" << std::endl;
+            
+            // Atomic counter for progress
+            std::atomic<int> rows_completed(0);
+            int total_rows = image_height;
             #pragma omp parallel for schedule(static)
             for(int j=image_height-1;j>=0;j--){
-                std::cerr<<"\rScanlines remaining: "<<j<<' '<<std::flush;
+                // Get thread info
+                int thread_id = omp_get_thread_num();
+                int num_threads_local = omp_get_num_threads();
                 for(int i=0;i<image_width;i++){
                     color pixel_color(0,0,0);
                     for(int s=0;s<samples_per_pixel;s++){
-                        auto ray=get_ray(i,j);
+                        auto offset_x=random_float()-0.5;
+                        auto offset_y=random_float()-0.5;
+                        auto ray=get_ray(i,j,offset_x,offset_y);
                         pixel_color+=ray_color(ray,world,max_depth);
                     }
                     pixel_color/=static_cast<float>(samples_per_pixel);//average the color over the samples
-                    int buffer_row = image_height - 1 - j;
+                    int buffer_row =j;
                     image_buffer[buffer_row * image_width + i] = pixel_color;
                 }
+                // Update progress (atomic to avoid race conditions)
+                int completed = rows_completed.fetch_add(1) + 1;
+                
+                // Only print progress every 1% or when row is divisible by something
+                if (completed % (total_rows / 100 + 1) == 0 || completed == total_rows) {
+                    int percent = (completed * 100) / total_rows;
+                    int bar_width = 40;
+                    int filled = (percent * bar_width) / 100;
+
+                    #pragma omp critical
+                    {
+                        std::cerr << "\r[";
+                        for (int k = 0; k < bar_width; k++) {
+                            if (k < filled) std::cerr << "=";
+                            else if (k == filled) std::cerr << ">";
+                            else std::cerr << " ";
+                        }
+                        std::cerr << "] " << percent << "%  ";
+                        std::cerr << "Rows: " << completed << "/" << total_rows;
+                        std::cerr << "  Thread: " << thread_id << "/" << num_threads_local;
+                        std::cerr << std::flush;
+                    }
+                }
             }
-            for(int j=image_height-1;j>=0;j--){
+             std::cerr << "\n\nWriting image to disk...\n";
+            for(int j=0;j<image_height;j++){
                 for(int i=0;i<image_width;i++){
                     write_color(image,image_buffer[j * image_width + i]);
                 }
             }
-            std::cerr<<"\nDone.\n";
+            std::cerr<<"\nDone.Image saved to: " << filename << std::endl;
 
         }
     private:
         
-        vec3 camera_center;//where the camera is located in the world  
+        point3 camera_center;//where the camera is located in the world  
         vec3 pixel00_loc;//location of the center of the pixel at (0,0) in the world 
         vec3 pixel_delta_u; 
         vec3 pixel_delta_v;   
         float pixel_sample_scale;            
         vec3   u, v, w;              // Camera frame basis vectors
         vec3   defocus_disk_u;       // Defocus disk horizontal radius
-        vec3   defocus_disk_v;       // Defocus disk vertical radius
-
-    
+        vec3   defocus_disk_v;       // Defocus disk vertical radius    
         void initialize(){
             auto aspect_ratio = 16.0f/9.0f;
             pixel_sample_scale=1.0/samples_per_pixel;
@@ -76,7 +117,6 @@ class Camera{
                 image_width = 400; // Default width
                 image_height = static_cast<int>(image_width / aspect_ratio); // Calculate height based on aspect ratio
             }
-
             camera_center = lookfrom;
             auto theta = degrees_to_radians(vfov);
             auto h = std::tan(theta/2);
@@ -90,7 +130,7 @@ class Camera{
             auto viewport_v = viewport_height* -v;
             pixel_delta_u = viewport_u / image_width;
             pixel_delta_v = viewport_v / image_height;
-            auto View_port_lower_left_corner = camera_center-(focus_dist*w) - viewport_u/2 - viewport_v/2 ;
+            auto View_port_lower_left_corner = camera_center - ( focus_dist * w) - viewport_u/2 - viewport_v/2 ;
             pixel00_loc=View_port_lower_left_corner+0.5*(pixel_delta_u+pixel_delta_v);
             // Calculate the camera defocus disk basis vectors.
             auto defocus_radius = focus_dist * std::tan(degrees_to_radians(defocus_angle / 2));
@@ -98,18 +138,17 @@ class Camera{
             defocus_disk_v = v * defocus_radius;
 
         }  
-        Ray get_ray(int i,int j){
-            auto offset=sample_square();
-            auto pixel_sample=pixel00_loc+((i + offset.get_x()) * pixel_delta_u)+((j + offset.get_y()) * pixel_delta_v);
+        Ray get_ray(int i,int j,float offset_x,float offset_y){
+            auto pixel_sample=pixel00_loc+((i + offset_x) * pixel_delta_u)+((j + offset_y) * pixel_delta_v);
             auto ray_origin=(defocus_angle <= 0) ? camera_center : defocus_disk_sample();
             auto ray_direction=pixel_sample- ray_origin;
-            return Ray(ray_origin,ray_direction);
+            auto ray_time=random_float();
+            return Ray(ray_origin,ray_direction,ray_time);
         }
         color ray_color(const Ray& r, Hittable& world,int depth){ 
             HitRecord record;
-
-            if(depth<=0)return color(0,0,0);
-            if(world.hit(r,Interval(0,infinity), record)) {
+            if(depth<=0)return color(0,0,0);         
+            if(world.hit(r,Interval(0.001,infinity), record)) {
                 Ray scattered;
                 color attenuation;
                 if(record.mat->scatter(r,record,attenuation,scattered)){
@@ -122,9 +161,7 @@ class Camera{
             return (1.0f - t) * color(1.0f, 1.0f, 1.0f) + t * color(0.5f, 0.7f, 1.0f);
         }
 
-        vec3 sample_square(){
-            return vec3(random_float() - 0.5,random_float() - 0.5,0);
-        }
+        
         point3 defocus_disk_sample() const {
         // Returns a random point in the camera defocus disk.
         auto p = random_in_unit_disk();

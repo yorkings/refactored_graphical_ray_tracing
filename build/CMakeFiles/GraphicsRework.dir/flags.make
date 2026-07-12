@@ -6,5 +6,5 @@ CXX_DEFINES =
 
 CXX_INCLUDES = 
 
-CXX_FLAGS = -std=gnu++17 -O3 -fopenmp
+CXX_FLAGS = -std=c++20 -O3 -march=native -mtune=native -fopenmp
 
