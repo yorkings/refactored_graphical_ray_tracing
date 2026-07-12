@@ -25,6 +25,8 @@
   CMakeFiles/GraphicsRework.dir/main.cpp.o
 
 CMakeFiles/GraphicsRework.dir/main.cpp.o: /home/yorkingstar/Documents/portfolio-projects/C\ projects/c++/graphics_rework_full_understanding/main.cpp \
+  /home/yorkingstar/Documents/portfolio-projects/C\ projects/c++/graphics_rework_full_understanding/headers/aabb.h \
+  /home/yorkingstar/Documents/portfolio-projects/C\ projects/c++/graphics_rework_full_understanding/headers/bvh.h \
   /home/yorkingstar/Documents/portfolio-projects/C\ projects/c++/graphics_rework_full_understanding/headers/camera.h \
   /home/yorkingstar/Documents/portfolio-projects/C\ projects/c++/graphics_rework_full_understanding/headers/coloring.h \
   /home/yorkingstar/Documents/portfolio-projects/C\ projects/c++/graphics_rework_full_understanding/headers/general.h \
@@ -119,6 +121,7 @@ CMakeFiles/GraphicsRework.dir/main.cpp.o: /home/yorkingstar/Documents/portfolio-
   /usr/include/bits/wchar.h \
   /usr/include/bits/wctype-wchar.h \
   /usr/include/bits/wordsize.h \
+  /usr/include/c++/16/algorithm \
   /usr/include/c++/16/array \
   /usr/include/c++/16/atomic \
   /usr/include/c++/16/backward/auto_ptr.h \
@@ -188,6 +191,7 @@ CMakeFiles/GraphicsRework.dir/main.cpp.o: /home/yorkingstar/Documents/portfolio-
   /usr/include/c++/16/bits/random.h \
   /usr/include/c++/16/bits/random.tcc \
   /usr/include/c++/16/bits/range_access.h \
+  /usr/include/c++/16/bits/ranges_algo.h \
   /usr/include/c++/16/bits/ranges_algobase.h \
   /usr/include/c++/16/bits/ranges_base.h \
   /usr/include/c++/16/bits/ranges_cmp.h \
@@ -274,6 +278,7 @@ CMakeFiles/GraphicsRework.dir/main.cpp.o: /home/yorkingstar/Documents/portfolio-
   /usr/include/c++/16/optional \
   /usr/include/c++/16/ostream \
   /usr/include/c++/16/pstl/execution_defs.h \
+  /usr/include/c++/16/pstl/glue_algorithm_defs.h \
   /usr/include/c++/16/pstl/glue_memory_defs.h \
   /usr/include/c++/16/pstl/glue_numeric_defs.h \
   /usr/include/c++/16/pstl/pstl_config.h \
@@ -473,17 +478,7 @@ CMakeFiles/GraphicsRework.dir/main.cpp.o: /home/yorkingstar/Documents/portfolio-
 
 /usr/include/c++/16/initializer_list:
 
-/usr/include/c++/16/pstl/execution_defs.h:
-
-/usr/include/c++/16/bits/allocator.h:
-
-/usr/include/bits/stdlib-float.h:
-
-/usr/include/bits/time64.h:
-
 /usr/include/c++/16/bit:
-
-/usr/include/c++/16/bits/alloc_traits.h:
 
 /usr/include/c++/16/backward/binders.h:
 
@@ -498,6 +493,10 @@ CMakeFiles/GraphicsRework.dir/main.cpp.o:
 /usr/include/c++/16/atomic:
 
 /usr/include/c++/16/array:
+
+/usr/include/c++/16/algorithm:
+
+/usr/include/c++/16/chrono:
 
 /usr/include/bits/wctype-wchar.h:
 
@@ -553,9 +552,21 @@ CMakeFiles/GraphicsRework.dir/main.cpp.o:
 
 /usr/include/c++/16/bits/locale_facets_nonio.tcc:
 
+/usr/include/c++/16/ext/type_traits.h:
+
+/usr/include/bits/thread-shared-types.h:
+
 /usr/include/c++/16/bits/istream.tcc:
 
 /usr/include/c++/16/cerrno:
+
+/usr/include/bits/stdlib-float.h:
+
+/usr/include/bits/time64.h:
+
+/usr/include/c++/16/pstl/execution_defs.h:
+
+/usr/include/c++/16/bits/allocator.h:
 
 /usr/include/c++/16/pstl/pstl_config.h:
 
@@ -651,9 +662,7 @@ CMakeFiles/GraphicsRework.dir/main.cpp.o:
 
 /usr/include/c++/16/bits/requires_hosted.h:
 
-/home/yorkingstar/Documents/portfolio-projects/C\ projects/c++/graphics_rework_full_understanding/headers/hitter.h:
-
-/usr/include/c++/16/bits/stdexcept_throw.h:
+/usr/include/c++/16/bits/stl_function.h:
 
 /usr/include/c++/16/iosfwd:
 
@@ -679,17 +688,13 @@ CMakeFiles/GraphicsRework.dir/main.cpp.o:
 
 /home/yorkingstar/Documents/portfolio-projects/C\ projects/c++/graphics_rework_full_understanding/headers/vec3.h:
 
-/usr/include/bits/types/struct_FILE.h:
+/lib64/ld-linux-x86-64.so.2:
 
-/usr/include/c++/16/bits/stdexcept_except.h:
+/usr/lib/gcc/x86_64-redhat-linux/16/include/stdarg.h:
 
-/home/yorkingstar/Documents/portfolio-projects/C\ projects/c++/graphics_rework_full_understanding/headers/materials.h:
+/usr/include/c++/16/bits/postypes.h:
 
-/usr/include/asm/types.h:
-
-/usr/include/bits/stdlib-bsearch.h:
-
-/home/yorkingstar/Documents/portfolio-projects/C\ projects/c++/graphics_rework_full_understanding/headers/camera.h:
+/home/yorkingstar/Documents/portfolio-projects/C\ projects/c++/graphics_rework_full_understanding/headers/bvh.h:
 
 /lib64/libgcc_s.so.1:
 
@@ -698,6 +703,12 @@ CMakeFiles/GraphicsRework.dir/main.cpp.o:
 /usr/include/c++/16/bits/specfun.h:
 
 /usr/lib/gcc/x86_64-redhat-linux/16/crtbegin.o:
+
+/usr/include/c++/16/tr1/bessel_function.tcc:
+
+/usr/include/bits/libm-simd-decl-stubs.h:
+
+/usr/include/c++/16/bits/algorithmfwd.h:
 
 /usr/include/c++/16/bits/unicode.h:
 
@@ -721,13 +732,9 @@ CMakeFiles/GraphicsRework.dir/main.cpp.o:
 
 /usr/include/bits/libc-header-start.h:
 
-/usr/lib64/crt1.o:
-
 /usr/include/bits/types/mbstate_t.h:
 
-/usr/include/c++/16/x86_64-redhat-linux/bits/ctype_base.h:
-
-/usr/include/c++/16/bits/allocated_ptr.h:
+/usr/lib64/crt1.o:
 
 /usr/include/c++/16/bits/atomic_base.h:
 
@@ -736,12 +743,6 @@ CMakeFiles/GraphicsRework.dir/main.cpp.o:
 /usr/include/libintl.h:
 
 /usr/include/bits/endianness.h:
-
-/usr/include/c++/16/tr1/bessel_function.tcc:
-
-/usr/include/c++/16/bits/algorithmfwd.h:
-
-/usr/include/bits/libm-simd-decl-stubs.h:
 
 /usr/include/ctype.h:
 
@@ -757,11 +758,23 @@ CMakeFiles/GraphicsRework.dir/main.cpp.o:
 
 /usr/include/c++/16/bits/parse_numbers.h:
 
-/lib64/ld-linux-x86-64.so.2:
+/home/yorkingstar/Documents/portfolio-projects/C\ projects/c++/graphics_rework_full_understanding/headers/aabb.h:
 
-/usr/lib/gcc/x86_64-redhat-linux/16/include/stdarg.h:
+/usr/include/c++/16/bits/stdexcept_throw.h:
 
-/usr/include/c++/16/bits/postypes.h:
+/home/yorkingstar/Documents/portfolio-projects/C\ projects/c++/graphics_rework_full_understanding/headers/hitter.h:
+
+/usr/include/bits/types/struct_FILE.h:
+
+/usr/include/c++/16/bits/stdexcept_except.h:
+
+/usr/include/asm/types.h:
+
+/home/yorkingstar/Documents/portfolio-projects/C\ projects/c++/graphics_rework_full_understanding/headers/materials.h:
+
+/usr/include/bits/stdlib-bsearch.h:
+
+/home/yorkingstar/Documents/portfolio-projects/C\ projects/c++/graphics_rework_full_understanding/headers/camera.h:
 
 /usr/include/alloca.h:
 
@@ -827,9 +840,21 @@ CMakeFiles/GraphicsRework.dir/main.cpp.o:
 
 /usr/include/c++/16/bits/ios_base.h:
 
+/usr/include/c++/16/bits/alloc_traits.h:
+
+/usr/include/c++/16/x86_64-redhat-linux/bits/ctype_base.h:
+
+/usr/include/c++/16/bits/allocated_ptr.h:
+
 /usr/include/c++/16/bits/basic_ios.h:
 
 /usr/include/c++/16/bits/basic_string.h:
+
+/usr/include/c++/16/ext/string_conversions.h:
+
+/usr/include/bits/atomic_wide_counter.h:
+
+/usr/include/c++/16/bits/charconv.h:
 
 /usr/include/gnu/stubs.h:
 
@@ -909,6 +934,10 @@ CMakeFiles/GraphicsRework.dir/main.cpp.o:
 
 /usr/include/c++/16/bits/monostate.h:
 
+/usr/include/c++/16/format:
+
+/usr/include/c++/16/cstddef:
+
 /usr/include/c++/16/x86_64-redhat-linux/bits/ctype_inline.h:
 
 /usr/include/c++/16/bits/move.h:
@@ -923,6 +952,12 @@ CMakeFiles/GraphicsRework.dir/main.cpp.o:
 
 /usr/include/c++/16/bits/range_access.h:
 
+/usr/include/c++/16/bits/ranges_algo.h:
+
+/usr/include/c++/16/bits/ranges_base.h:
+
+/usr/include/c++/16/bits/uses_allocator_args.h:
+
 /usr/include/sys/types.h:
 
 /usr/include/c++/16/bits/ranges_algobase.h:
@@ -930,10 +965,6 @@ CMakeFiles/GraphicsRework.dir/main.cpp.o:
 /usr/include/c++/16/tr1/poly_laguerre.tcc:
 
 /usr/include/c++/16/bits/stl_numeric.h:
-
-/usr/include/c++/16/bits/ranges_base.h:
-
-/usr/include/c++/16/bits/uses_allocator_args.h:
 
 /usr/include/c++/16/bits/ranges_cmp.h:
 
@@ -970,8 +1001,6 @@ CMakeFiles/GraphicsRework.dir/main.cpp.o:
 /usr/include/asm-generic/posix_types.h:
 
 /usr/include/c++/16/bits/uses_allocator.h:
-
-/usr/include/c++/16/bits/stl_function.h:
 
 /usr/include/c++/16/x86_64-redhat-linux/bits/gthr.h:
 
@@ -1011,15 +1040,13 @@ CMakeFiles/GraphicsRework.dir/main.cpp.o:
 
 /usr/include/c++/16/bits/version.h:
 
-/usr/include/c++/16/chrono:
-
 /usr/include/pthread.h:
 
 /usr/include/c++/16/compare:
 
-/usr/include/c++/16/bits/locale_classes.h:
-
 /usr/include/c++/16/bits/ranges_util.h:
+
+/usr/include/c++/16/bits/locale_classes.h:
 
 /usr/include/c++/16/concepts:
 
@@ -1036,6 +1063,8 @@ CMakeFiles/GraphicsRework.dir/main.cpp.o:
 /usr/include/linux/sched/types.h:
 
 /usr/include/c++/16/cwchar:
+
+/usr/include/c++/16/pstl/glue_algorithm_defs.h:
 
 /usr/include/c++/16/debug/assertions.h:
 
@@ -1054,17 +1083,3 @@ CMakeFiles/GraphicsRework.dir/main.cpp.o:
 /usr/include/c++/16/exception:
 
 /usr/include/c++/16/ext/concurrence.h:
-
-/usr/include/bits/atomic_wide_counter.h:
-
-/usr/include/c++/16/bits/charconv.h:
-
-/usr/include/c++/16/ext/string_conversions.h:
-
-/usr/include/bits/thread-shared-types.h:
-
-/usr/include/c++/16/ext/type_traits.h:
-
-/usr/include/c++/16/cstddef:
-
-/usr/include/c++/16/format:

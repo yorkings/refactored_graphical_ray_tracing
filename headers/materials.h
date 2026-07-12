@@ -3,6 +3,7 @@
 #include "vec3.h"
 #include "ray.h"
 #include "hitter.h"
+
 using color=Vector3d;
 
 class Material{

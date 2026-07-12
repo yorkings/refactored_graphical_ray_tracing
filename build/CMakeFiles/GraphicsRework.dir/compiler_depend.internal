@@ -27,6 +27,8 @@
 
 CMakeFiles/GraphicsRework.dir/main.cpp.o
  /home/yorkingstar/Documents/portfolio-projects/C projects/c++/graphics_rework_full_understanding/main.cpp
+ /home/yorkingstar/Documents/portfolio-projects/C projects/c++/graphics_rework_full_understanding/headers/aabb.h
+ /home/yorkingstar/Documents/portfolio-projects/C projects/c++/graphics_rework_full_understanding/headers/bvh.h
  /home/yorkingstar/Documents/portfolio-projects/C projects/c++/graphics_rework_full_understanding/headers/camera.h
  /home/yorkingstar/Documents/portfolio-projects/C projects/c++/graphics_rework_full_understanding/headers/coloring.h
  /home/yorkingstar/Documents/portfolio-projects/C projects/c++/graphics_rework_full_understanding/headers/general.h
@@ -121,6 +123,7 @@ CMakeFiles/GraphicsRework.dir/main.cpp.o
  /usr/include/bits/wchar.h
  /usr/include/bits/wctype-wchar.h
  /usr/include/bits/wordsize.h
+ /usr/include/c++/16/algorithm
  /usr/include/c++/16/array
  /usr/include/c++/16/atomic
  /usr/include/c++/16/backward/auto_ptr.h
@@ -190,6 +193,7 @@ CMakeFiles/GraphicsRework.dir/main.cpp.o
  /usr/include/c++/16/bits/random.h
  /usr/include/c++/16/bits/random.tcc
  /usr/include/c++/16/bits/range_access.h
+ /usr/include/c++/16/bits/ranges_algo.h
  /usr/include/c++/16/bits/ranges_algobase.h
  /usr/include/c++/16/bits/ranges_base.h
  /usr/include/c++/16/bits/ranges_cmp.h
@@ -276,6 +280,7 @@ CMakeFiles/GraphicsRework.dir/main.cpp.o
  /usr/include/c++/16/optional
  /usr/include/c++/16/ostream
  /usr/include/c++/16/pstl/execution_defs.h
+ /usr/include/c++/16/pstl/glue_algorithm_defs.h
  /usr/include/c++/16/pstl/glue_memory_defs.h
  /usr/include/c++/16/pstl/glue_numeric_defs.h
  /usr/include/c++/16/pstl/pstl_config.h

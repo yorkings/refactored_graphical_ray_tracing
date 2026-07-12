@@ -1,5 +1,6 @@
 #pragma once
 #include "general.h"
+#include "aabb.h"
 using vec3=Vector3d;
 
 class Material;
@@ -20,9 +21,12 @@ class Hittable{
     public:
         virtual ~Hittable() = default;
         virtual bool hit(const Ray& r, Interval ray_t, HitRecord& record) const = 0;
+        virtual AABB bounding_box() const = 0;
 };
 
 class HitList:public Hittable{
+    private:
+        AABB bbox;
     public:
         HitList(){}
         HitList(shared_ptr<Hittable> object){add(object);}
@@ -31,6 +35,7 @@ class HitList:public Hittable{
         //actually add the object to the list of hittable objects
         void add(shared_ptr<Hittable> object){
             objects.push_back(object);
+            bbox=AABB(bbox,object->bounding_box());
         }
         void clear(){
             objects.clear();
@@ -48,5 +53,6 @@ class HitList:public Hittable{
             }
             return hit_anything;
         }
+        AABB bounding_box() const override { return bbox; }
 };
 

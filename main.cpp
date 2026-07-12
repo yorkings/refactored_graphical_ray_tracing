@@ -5,10 +5,12 @@
 #include <sstream>
 #include "headers/vec3.h"
 #include "headers/ray.h"
+#include "headers/bvh.h"
 #include "headers/camera.h"
 #include "headers/hitter.h"
 #include "headers/sphere.h"
 #include "headers/materials.h"
+
 
 using point3=Vector3d;
 
@@ -73,6 +75,7 @@ int main() {
 
     auto material3 = make_shared<metal>(color(0.7, 0.6, 0.5), 0.0);
     world.add(make_shared<Sphere>(point3(4, 1, 0), 1.0, material3));
+    world = HitList(make_shared<BVHNode>(world));
 
     Camera cam;
     cam.filename=filename;

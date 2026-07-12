@@ -18,9 +18,9 @@ class Vector3d{
         inline float get_g() const { return y; }
         inline float get_b() const { return z; }
         //operations
-        inline Vector3d operator-()const{
-            return Vector3d(-x,-y,-z);
-        }
+        inline Vector3d operator-()const{return Vector3d(-x,-y,-z);}
+        float operator[](int i) const { return (i==0)?x:((i==1)?y:z); } 
+        float& operator[](int i) { return (i==0)?x:((i==1)?y:z); }        
         inline Vector3d &operator+=(const Vector3d &vec){
             x+=vec.x;y+=vec.y;z+=vec.z;
             return *this;
