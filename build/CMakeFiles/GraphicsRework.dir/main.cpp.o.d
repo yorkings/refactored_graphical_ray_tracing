@@ -242,4 +242,5 @@ CMakeFiles/GraphicsRework.dir/main.cpp.o: \
  /usr/include/c++/16/bits/fstream.tcc \
  /home/yorkingstar/Documents/portfolio-projects/C\ projects/c++/graphics_rework_full_understanding/headers/coloring.h \
  /home/yorkingstar/Documents/portfolio-projects/C\ projects/c++/graphics_rework_full_understanding/headers/sphere.h \
- /home/yorkingstar/Documents/portfolio-projects/C\ projects/c++/graphics_rework_full_understanding/headers/materials.h
+ /home/yorkingstar/Documents/portfolio-projects/C\ projects/c++/graphics_rework_full_understanding/headers/materials.h \
+ /home/yorkingstar/Documents/portfolio-projects/C\ projects/c++/graphics_rework_full_understanding/headers/texture.h

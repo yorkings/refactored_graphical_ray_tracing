@@ -3,6 +3,7 @@
 #include "vec3.h"
 #include "ray.h"
 #include "hitter.h"
+#include "texture.h"
 
 using color=Vector3d;
 
@@ -15,14 +16,15 @@ class Material{
 //lambertian mean difuuse
 class Lambertian:public Material{
     private:
-         color albedo;
+         shared_ptr<texture>tex;
     public:
-        Lambertian(const color &a):albedo(a){};
+        Lambertian(const color &albedo):tex(make_shared<solid_color>(albedo)){};
+        Lambertian(shared_ptr<texture> tex) : tex(tex) {}
         bool scatter(const Ray& r_in, const HitRecord& rec, color& attenuation, Ray& scattered)const override {
             auto scatter_direction = rec.normal + random_unit_vector();
              if (scatter_direction.near_zero()){scatter_direction = rec.normal;}
             scattered = Ray(rec.point, scatter_direction,r_in.get_time());
-            attenuation = albedo;
+            attenuation = tex->value(rec.u,rec.v,rec.point);
             return true;
         }        
 };

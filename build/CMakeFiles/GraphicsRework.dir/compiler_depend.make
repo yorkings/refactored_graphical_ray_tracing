@@ -35,6 +35,7 @@ CMakeFiles/GraphicsRework.dir/main.cpp.o: /home/yorkingstar/Documents/portfolio-
   /home/yorkingstar/Documents/portfolio-projects/C\ projects/c++/graphics_rework_full_understanding/headers/materials.h \
   /home/yorkingstar/Documents/portfolio-projects/C\ projects/c++/graphics_rework_full_understanding/headers/ray.h \
   /home/yorkingstar/Documents/portfolio-projects/C\ projects/c++/graphics_rework_full_understanding/headers/sphere.h \
+  /home/yorkingstar/Documents/portfolio-projects/C\ projects/c++/graphics_rework_full_understanding/headers/texture.h \
   /home/yorkingstar/Documents/portfolio-projects/C\ projects/c++/graphics_rework_full_understanding/headers/vec3.h \
   /usr/include/alloca.h \
   /usr/include/asm-generic/bitsperlong.h \
@@ -550,8 +551,6 @@ CMakeFiles/GraphicsRework.dir/main.cpp.o:
 
 /usr/include/bits/timex.h:
 
-/usr/include/c++/16/bits/locale_facets_nonio.tcc:
-
 /usr/include/c++/16/ext/type_traits.h:
 
 /usr/include/bits/thread-shared-types.h:
@@ -594,8 +593,6 @@ CMakeFiles/GraphicsRework.dir/main.cpp.o:
 
 /usr/include/c++/16/ext/aligned_buffer.h:
 
-/home/yorkingstar/Documents/portfolio-projects/C\ projects/c++/graphics_rework_full_understanding/headers/ray.h:
-
 /usr/include/features.h:
 
 /usr/include/bits/types/__FILE.h:
@@ -624,14 +621,6 @@ CMakeFiles/GraphicsRework.dir/main.cpp.o:
 
 /usr/include/bits/pthread_stack_min-dynamic.h:
 
-/usr/include/bits/types/timer_t.h:
-
-/usr/include/c++/16/bits/ostream_insert.h:
-
-/usr/include/c++/16/tr1/modified_bessel_func.tcc:
-
-/usr/lib64/libpthread.a:
-
 /usr/include/bits/mathcalls-macros.h:
 
 /usr/include/asm-generic/int-ll64.h:
@@ -645,6 +634,8 @@ CMakeFiles/GraphicsRework.dir/main.cpp.o:
 /usr/include/c++/16/bits/shared_ptr_atomic.h:
 
 /usr/include/c++/16/bits/ptr_traits.h:
+
+/usr/include/bits/libc-header-start.h:
 
 /usr/include/bits/math-vector.h:
 
@@ -686,6 +677,10 @@ CMakeFiles/GraphicsRework.dir/main.cpp.o:
 
 /usr/include/bits/long-double.h:
 
+/usr/include/c++/16/tr1/modified_bessel_func.tcc:
+
+/usr/lib64/libpthread.a:
+
 /home/yorkingstar/Documents/portfolio-projects/C\ projects/c++/graphics_rework_full_understanding/headers/vec3.h:
 
 /lib64/ld-linux-x86-64.so.2:
@@ -693,6 +688,14 @@ CMakeFiles/GraphicsRework.dir/main.cpp.o:
 /usr/lib/gcc/x86_64-redhat-linux/16/include/stdarg.h:
 
 /usr/include/c++/16/bits/postypes.h:
+
+/usr/include/bits/types/timer_t.h:
+
+/usr/include/c++/16/bits/ostream_insert.h:
+
+/home/yorkingstar/Documents/portfolio-projects/C\ projects/c++/graphics_rework_full_understanding/headers/ray.h:
+
+/home/yorkingstar/Documents/portfolio-projects/C\ projects/c++/graphics_rework_full_understanding/headers/texture.h:
 
 /home/yorkingstar/Documents/portfolio-projects/C\ projects/c++/graphics_rework_full_understanding/headers/bvh.h:
 
@@ -729,8 +732,6 @@ CMakeFiles/GraphicsRework.dir/main.cpp.o:
 /home/yorkingstar/Documents/portfolio-projects/C\ projects/c++/graphics_rework_full_understanding/headers/sphere.h:
 
 /usr/include/c++/16/bits/new_except.h:
-
-/usr/include/bits/libc-header-start.h:
 
 /usr/include/bits/types/mbstate_t.h:
 
@@ -839,6 +840,8 @@ CMakeFiles/GraphicsRework.dir/main.cpp.o:
 /usr/include/bits/iscanonical.h:
 
 /usr/include/c++/16/bits/ios_base.h:
+
+/usr/include/c++/16/bits/locale_facets_nonio.tcc:
 
 /usr/include/c++/16/bits/alloc_traits.h:
 

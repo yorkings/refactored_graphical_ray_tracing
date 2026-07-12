@@ -10,6 +10,7 @@
 #include "headers/hitter.h"
 #include "headers/sphere.h"
 #include "headers/materials.h"
+#include "headers/texture.h"
 
 
 using point3=Vector3d;
@@ -34,8 +35,8 @@ int main() {
     }
     std::string filename = "data/" + user_filename + "_" + get_current_time() + ".ppm";
 
-    auto ground_material = make_shared<Lambertian>(color(0.5, 0.5, 0.5));
-    world.add(make_shared<Sphere>(point3(0,-1000,0), 1000, ground_material));
+    auto ground_texture = make_shared<checker_texture>(0.22, color(.9, .3, .1), color(.9, .9, .9));
+    world.add(make_shared<Sphere>(point3(0,-1000,0), 1000, make_shared<Lambertian>(ground_texture)));
 
     for (int a = -11; a < 11; a++) {
         for (int b = -11; b < 11; b++) {
