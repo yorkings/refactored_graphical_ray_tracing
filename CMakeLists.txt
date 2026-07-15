@@ -8,9 +8,10 @@ set(CMAKE_CXX_EXTENSIONS OFF)  # Use strict C++20
 # Force executable to the source directory root
 set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_SOURCE_DIR})
 
+
 find_package(OpenMP REQUIRED)
 
-add_executable(GraphicsRework main.cpp)
+add_executable(GraphicsRework main.cpp )
 
 # Apply OpenMP flags and optimization
 target_link_libraries(GraphicsRework PRIVATE OpenMP::OpenMP_CXX)

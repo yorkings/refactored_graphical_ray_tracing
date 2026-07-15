@@ -1,7 +1,6 @@
 #pragma once
 #include<iostream>
-#include<cmath>
-#include<cstdlib>
+
 #include "general.h"
 
 std::string get_current_time();

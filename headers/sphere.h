@@ -18,23 +18,32 @@ class Sphere : public Hittable {
         //moving sphere
         Sphere(const vec3& cen1,const vec3 &cen2, float r,shared_ptr<Material> mat) : center(cen1,(cen2-cen1)), radius(std::fmax(0,r)), material(mat) {
             auto rvec = vec3(radius, radius, radius);
-            AABB box1(center.at(0) - rvec, center.at(1) + rvec);
-            AABB box2(center.at(1)-rvec,center.at(1)+rvec); 
+            point3 c0 = center.at(0);
+            point3 c1 = center.at(1);
+            AABB box1(c0 - rvec, c0 + rvec);
+            AABB box2(c1-rvec,c1+rvec); 
             bbox=AABB(box1,box2);               
         } 
+        static void get_sphere_uv(const point3 &p,float &u,float &v){
+            auto theta=std::acos(-p.get_y());
+            auto phi=std::atan2(-p.get_z(), p.get_x()) + pi;
+            u=phi/(2*pi);
+            v=theta/pi;
+
+        }
         bool hit(const Ray& r, Interval ray_t, HitRecord& record) const override {
             point3 current_center=center.at(r.get_time());
             vec3 oc = r.get_origin()- current_center;
             float a = r.get_direction().squared_length();
-            float b = dot(oc, r.get_direction());
+            float half_b = dot(oc, r.get_direction());
             float c = oc.squared_length() - radius * radius;
-            float discriminant = b * b -  a * c;
+            float discriminant = half_b * half_b -  a * c;
         
             if (discriminant < 0)return false;
             float sqrt_discriminant = std::sqrt(discriminant);            
-            float root = (-b - sqrt_discriminant) /a;
+            float root = (-half_b - sqrt_discriminant) /a;
             if (!ray_t.surrounds(root)) {
-                root = (-b + sqrt_discriminant) / a;
+                root = (-half_b + sqrt_discriminant) / a;
                 if (!ray_t.surrounds(root)) {
                     return false;
                 }
@@ -43,6 +52,7 @@ class Sphere : public Hittable {
             record.point = r.at(record.t);
             vec3 outward_normal = (record.point - current_center) / radius;
             record.set_face_normal(r, outward_normal);
+            get_sphere_uv(outward_normal,record.u,record.v);
             record.mat=material;
             return true;
         } 

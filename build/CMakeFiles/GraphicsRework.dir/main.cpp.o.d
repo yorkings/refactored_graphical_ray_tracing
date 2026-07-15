@@ -185,8 +185,19 @@ CMakeFiles/GraphicsRework.dir/main.cpp.o: \
  /usr/include/c++/16/bits/unicode.h \
  /usr/include/c++/16/bits/unicode-data.h \
  /home/yorkingstar/Documents/portfolio-projects/C\ projects/c++/graphics_rework_full_understanding/headers/vec3.h \
- /usr/include/c++/16/cmath /usr/include/math.h \
- /usr/include/bits/math-vector.h /usr/include/bits/libm-simd-decl-stubs.h \
+ /home/yorkingstar/Documents/portfolio-projects/C\ projects/c++/graphics_rework_full_understanding/headers/general.h \
+ /usr/include/c++/16/memory \
+ /usr/include/c++/16/bits/stl_raw_storage_iter.h \
+ /usr/include/c++/16/bits/shared_ptr_atomic.h \
+ /usr/include/c++/16/bits/atomic_base.h \
+ /usr/include/c++/16/bits/atomic_lockfree_defines.h \
+ /usr/include/c++/16/bits/atomic_wait.h \
+ /usr/include/c++/16/backward/auto_ptr.h \
+ /usr/include/c++/16/bits/ranges_uninitialized.h \
+ /usr/include/c++/16/pstl/glue_memory_defs.h \
+ /usr/include/c++/16/pstl/execution_defs.h /usr/include/c++/16/cmath \
+ /usr/include/math.h /usr/include/bits/math-vector.h \
+ /usr/include/bits/libm-simd-decl-stubs.h \
  /usr/include/bits/flt-eval-method.h /usr/include/bits/fp-logb.h \
  /usr/include/bits/fp-fast.h /usr/include/bits/mathcalls-macros.h \
  /usr/include/bits/mathcalls-helper-functions.h \
@@ -203,18 +214,7 @@ CMakeFiles/GraphicsRework.dir/main.cpp.o: \
  /usr/include/c++/16/tr1/modified_bessel_func.tcc \
  /usr/include/c++/16/tr1/poly_hermite.tcc \
  /usr/include/c++/16/tr1/poly_laguerre.tcc \
- /usr/include/c++/16/tr1/riemann_zeta.tcc \
- /home/yorkingstar/Documents/portfolio-projects/C\ projects/c++/graphics_rework_full_understanding/headers/general.h \
- /usr/include/c++/16/memory \
- /usr/include/c++/16/bits/stl_raw_storage_iter.h \
- /usr/include/c++/16/bits/shared_ptr_atomic.h \
- /usr/include/c++/16/bits/atomic_base.h \
- /usr/include/c++/16/bits/atomic_lockfree_defines.h \
- /usr/include/c++/16/bits/atomic_wait.h \
- /usr/include/c++/16/backward/auto_ptr.h \
- /usr/include/c++/16/bits/ranges_uninitialized.h \
- /usr/include/c++/16/pstl/glue_memory_defs.h \
- /usr/include/c++/16/pstl/execution_defs.h /usr/include/c++/16/atomic \
+ /usr/include/c++/16/tr1/riemann_zeta.tcc /usr/include/c++/16/atomic \
  /usr/include/c++/16/random /usr/include/c++/16/bits/random.h \
  /usr/include/c++/16/x86_64-redhat-linux/bits/opt_random.h \
  /usr/lib/gcc/x86_64-redhat-linux/16/include/pmmintrin.h \
@@ -243,4 +243,9 @@ CMakeFiles/GraphicsRework.dir/main.cpp.o: \
  /home/yorkingstar/Documents/portfolio-projects/C\ projects/c++/graphics_rework_full_understanding/headers/coloring.h \
  /home/yorkingstar/Documents/portfolio-projects/C\ projects/c++/graphics_rework_full_understanding/headers/sphere.h \
  /home/yorkingstar/Documents/portfolio-projects/C\ projects/c++/graphics_rework_full_understanding/headers/materials.h \
- /home/yorkingstar/Documents/portfolio-projects/C\ projects/c++/graphics_rework_full_understanding/headers/texture.h
+ /home/yorkingstar/Documents/portfolio-projects/C\ projects/c++/graphics_rework_full_understanding/headers/texture.h \
+ /home/yorkingstar/Documents/portfolio-projects/C\ projects/c++/graphics_rework_full_understanding/headers/perlin_noise.h \
+ /home/yorkingstar/Documents/portfolio-projects/C\ projects/c++/graphics_rework_full_understanding/headers/rtw_stb_image.h \
+ /home/yorkingstar/Documents/portfolio-projects/C\ projects/c++/graphics_rework_full_understanding/headers/../src/stb_image.h \
+ /usr/include/string.h /usr/include/strings.h /usr/include/c++/16/math.h \
+ /usr/include/assert.h

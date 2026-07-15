@@ -25,16 +25,8 @@ std::string get_current_time() {
 }
 
 
-int main() {
+void bouncing_spheres(const std::string &filename) {
     HitList world;
-    std::string user_filename;   
-    std::cout << "Enter save file name (without extension): ";
-    if (!(std::cin >> user_filename)) {
-        std::cerr << "Error reading input. Using default filename." << std::endl;
-        user_filename = "render";
-    }
-    std::string filename = "data/" + user_filename + "_" + get_current_time() + ".ppm";
-
     auto ground_texture = make_shared<checker_texture>(0.22, color(.9, .3, .1), color(.9, .9, .9));
     world.add(make_shared<Sphere>(point3(0,-1000,0), 1000, make_shared<Lambertian>(ground_texture)));
 
@@ -92,5 +84,62 @@ int main() {
     cam.defocus_angle = 0.6;// Set the defocus angle for depth of field
     cam.focus_dist    = 10;// Set the focus distance for depth of field
     cam.render(world); // Pass the world to the render function
+}
+void checkered_spheres(const std::string &filename) {
+    HitList world;
+    auto checker = make_shared<checker_texture>(0.32, color(.8, .2, .1), color(.9, .9, .9));
+
+    world.add(make_shared<Sphere>(point3(0,-10, 0), 10, make_shared<Lambertian>(checker)));
+    world.add(make_shared<Sphere>(point3(0, 10, 0), 10, make_shared<Lambertian>(checker)));
+
+    Camera cam;
+    cam.filename=filename;
+    cam.image_width       = 400;
+    cam.samples_per_pixel = 100;
+    cam.max_depth         = 50;
+    cam.vfov     = 20;
+    cam.lookfrom = point3(13,2,3);
+    cam.lookat   = point3(0,0,0);
+    cam.vup      = vec3(0,1,0);
+
+    cam.defocus_angle = 0;
+
+    cam.render(world);
+}
+void perlin_spheres(const std::string &filename) {
+    HitList world;
+    auto pertext = make_shared<noise_texture>();
+    world.add(make_shared<Sphere>(point3(0,-1000,0), 1000, make_shared<Lambertian>(pertext)));
+    world.add(make_shared<Sphere>(point3(0,2,0), 2, make_shared<Lambertian>(pertext)));
+
+    Camera cam;
+    cam.filename=filename;
+    cam.image_width       = 400;
+    cam.samples_per_pixel = 100;
+    cam.max_depth         = 50;
+
+    cam.vfov     = 20;
+    cam.lookfrom = point3(13,2,3);
+    cam.lookat   = point3(0,0,0);
+    cam.vup      = vec3(0,1,0);
+
+    cam.defocus_angle = 0;
+
+    cam.render(world);
+}
+
+int main(){
+    std::string user_filename;   
+    std::cout << "Enter save file name (without extension): ";
+    if (!(std::cin >> user_filename)) {
+        std::cerr << "Error reading input. Using default filename." << std::endl;
+        user_filename = "render";
+    }
+    std::string filename = "data/" + user_filename + "_" + get_current_time() + ".ppm";
+    switch (3) {
+        case 1: bouncing_spheres(filename);  break;
+        case 2: checkered_spheres(filename); break;
+        case 3:perlin_spheres(filename);break;
+    }
     return 0;
 }

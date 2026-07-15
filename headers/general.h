@@ -10,10 +10,12 @@
 #include <omp.h>   
 #include <chrono> 
 #include <algorithm>
+#include<cmath>
+#include<cstdlib>
 using std::shared_ptr;
 using std::make_shared;
 const float infinity = std::numeric_limits<float>::infinity();
-
+const float pi =M_PI;
 inline float random_float() {
     thread_local std::mt19937 gen(std::random_device{}());
     thread_local std::uniform_real_distribution<float> dis(0.0f, 1.0f);

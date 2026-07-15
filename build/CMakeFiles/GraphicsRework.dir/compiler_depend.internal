@@ -27,6 +27,7 @@
 
 CMakeFiles/GraphicsRework.dir/main.cpp.o
  /home/yorkingstar/Documents/portfolio-projects/C projects/c++/graphics_rework_full_understanding/main.cpp
+ /home/yorkingstar/Documents/portfolio-projects/C projects/c++/graphics_rework_full_understanding/src/stb_image.h
  /home/yorkingstar/Documents/portfolio-projects/C projects/c++/graphics_rework_full_understanding/headers/aabb.h
  /home/yorkingstar/Documents/portfolio-projects/C projects/c++/graphics_rework_full_understanding/headers/bvh.h
  /home/yorkingstar/Documents/portfolio-projects/C projects/c++/graphics_rework_full_understanding/headers/camera.h
@@ -35,7 +36,9 @@ CMakeFiles/GraphicsRework.dir/main.cpp.o
  /home/yorkingstar/Documents/portfolio-projects/C projects/c++/graphics_rework_full_understanding/headers/hitter.h
  /home/yorkingstar/Documents/portfolio-projects/C projects/c++/graphics_rework_full_understanding/headers/interval.h
  /home/yorkingstar/Documents/portfolio-projects/C projects/c++/graphics_rework_full_understanding/headers/materials.h
+ /home/yorkingstar/Documents/portfolio-projects/C projects/c++/graphics_rework_full_understanding/headers/perlin_noise.h
  /home/yorkingstar/Documents/portfolio-projects/C projects/c++/graphics_rework_full_understanding/headers/ray.h
+ /home/yorkingstar/Documents/portfolio-projects/C projects/c++/graphics_rework_full_understanding/headers/rtw_stb_image.h
  /home/yorkingstar/Documents/portfolio-projects/C projects/c++/graphics_rework_full_understanding/headers/sphere.h
  /home/yorkingstar/Documents/portfolio-projects/C projects/c++/graphics_rework_full_understanding/headers/texture.h
  /home/yorkingstar/Documents/portfolio-projects/C projects/c++/graphics_rework_full_understanding/headers/vec3.h
@@ -51,6 +54,7 @@ CMakeFiles/GraphicsRework.dir/main.cpp.o
  /usr/include/asm/posix_types.h
  /usr/include/asm/posix_types_64.h
  /usr/include/asm/types.h
+ /usr/include/assert.h
  /usr/include/bits/atomic_wide_counter.h
  /usr/include/bits/byteswap.h
  /usr/include/bits/cpu-set.h
@@ -274,6 +278,7 @@ CMakeFiles/GraphicsRework.dir/main.cpp.o
  /usr/include/c++/16/istream
  /usr/include/c++/16/limits
  /usr/include/c++/16/locale
+ /usr/include/c++/16/math.h
  /usr/include/c++/16/memory
  /usr/include/c++/16/new
  /usr/include/c++/16/numbers
@@ -348,6 +353,8 @@ CMakeFiles/GraphicsRework.dir/main.cpp.o
  /usr/include/stdint.h
  /usr/include/stdio.h
  /usr/include/stdlib.h
+ /usr/include/string.h
+ /usr/include/strings.h
  /usr/include/sys/cdefs.h
  /usr/include/sys/select.h
  /usr/include/sys/single_threaded.h
