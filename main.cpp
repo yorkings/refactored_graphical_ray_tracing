@@ -108,7 +108,7 @@ void checkered_spheres(const std::string &filename) {
 }
 void perlin_spheres(const std::string &filename) {
     HitList world;
-    auto pertext = make_shared<noise_texture>();
+    auto pertext = make_shared<noise_texture>(4);
     world.add(make_shared<Sphere>(point3(0,-1000,0), 1000, make_shared<Lambertian>(pertext)));
     world.add(make_shared<Sphere>(point3(0,2,0), 2, make_shared<Lambertian>(pertext)));
 

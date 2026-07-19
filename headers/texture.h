@@ -42,10 +42,11 @@ class checker_texture : public texture {
 class noise_texture:public texture{
   private:
     perlin noise;
+    float scale;
   public:
-    noise_texture(){}
+    noise_texture(float scale):scale(scale){}
     color value(float u, float v, const point3& p) const override {
-      return color(1,1,1) * noise.noise(p);
+      return color(.5, .5, .5) * (1 + std::sin(scale * p.get_z() + 10 * noise.turbulence(p, 7)));
     }
 
 };
