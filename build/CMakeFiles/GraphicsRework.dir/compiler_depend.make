@@ -35,6 +35,7 @@ CMakeFiles/GraphicsRework.dir/main.cpp.o: /home/yorkingstar/Documents/portfolio-
   /home/yorkingstar/Documents/portfolio-projects/C\ projects/c++/graphics_rework_full_understanding/headers/interval.h \
   /home/yorkingstar/Documents/portfolio-projects/C\ projects/c++/graphics_rework_full_understanding/headers/materials.h \
   /home/yorkingstar/Documents/portfolio-projects/C\ projects/c++/graphics_rework_full_understanding/headers/perlin_noise.h \
+  /home/yorkingstar/Documents/portfolio-projects/C\ projects/c++/graphics_rework_full_understanding/headers/quadrilateral.h \
   /home/yorkingstar/Documents/portfolio-projects/C\ projects/c++/graphics_rework_full_understanding/headers/ray.h \
   /home/yorkingstar/Documents/portfolio-projects/C\ projects/c++/graphics_rework_full_understanding/headers/rtw_stb_image.h \
   /home/yorkingstar/Documents/portfolio-projects/C\ projects/c++/graphics_rework_full_understanding/headers/sphere.h \
@@ -498,10 +499,6 @@ CMakeFiles/GraphicsRework.dir/main.cpp.o: /home/yorkingstar/Documents/portfolio-
 
 /usr/include/c++/16/ext/aligned_buffer.h:
 
-/usr/include/sys/single_threaded.h:
-
-/usr/include/c++/16/atomic:
-
 /usr/include/c++/16/array:
 
 /usr/include/c++/16/algorithm:
@@ -630,6 +627,8 @@ CMakeFiles/GraphicsRework.dir/main.cpp.o: /home/yorkingstar/Documents/portfolio-
 
 /usr/include/bits/types/time_t.h:
 
+/home/yorkingstar/Documents/portfolio-projects/C\ projects/c++/graphics_rework_full_understanding/headers/quadrilateral.h:
+
 /usr/include/c++/16/bits/localefwd.h:
 
 /usr/include/c++/16/bits/ostream.tcc:
@@ -692,6 +691,12 @@ CMakeFiles/GraphicsRework.dir/main.cpp.o: /home/yorkingstar/Documents/portfolio-
 
 /usr/include/bits/floatn-common.h:
 
+/usr/include/c++/16/x86_64-redhat-linux/bits/atomic_word.h:
+
+/usr/include/c++/16/bits/vector.tcc:
+
+/usr/include/bits/floatn.h:
+
 /usr/include/bits/long-double.h:
 
 /usr/include/c++/16/tr1/modified_bessel_func.tcc:
@@ -735,6 +740,10 @@ CMakeFiles/GraphicsRework.dir/main.cpp.o: /home/yorkingstar/Documents/portfolio-
 /usr/include/bits/types/__fpos_t.h:
 
 /usr/include/c++/16/bits/char_traits.h:
+
+/usr/include/c++/16/exception:
+
+/usr/include/c++/16/bits/random.h:
 
 /usr/include/bits/waitstatus.h:
 
@@ -848,11 +857,9 @@ CMakeFiles/GraphicsRework.dir/main.cpp.o:
 
 /usr/include/asm/errno.h:
 
-/usr/include/c++/16/x86_64-redhat-linux/bits/atomic_word.h:
+/usr/include/sys/single_threaded.h:
 
-/usr/include/c++/16/bits/vector.tcc:
-
-/usr/include/bits/floatn.h:
+/usr/include/c++/16/atomic:
 
 /usr/include/c++/16/backward/auto_ptr.h:
 
@@ -1103,7 +1110,3 @@ CMakeFiles/GraphicsRework.dir/main.cpp.o:
 /usr/include/c++/16/bits/stl_bvector.h:
 
 /usr/include/c++/16/debug/debug.h:
-
-/usr/include/c++/16/bits/random.h:
-
-/usr/include/c++/16/exception:

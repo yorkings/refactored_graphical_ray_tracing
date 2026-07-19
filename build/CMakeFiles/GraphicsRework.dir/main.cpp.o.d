@@ -248,4 +248,5 @@ CMakeFiles/GraphicsRework.dir/main.cpp.o: \
  /home/yorkingstar/Documents/portfolio-projects/C\ projects/c++/graphics_rework_full_understanding/headers/rtw_stb_image.h \
  /home/yorkingstar/Documents/portfolio-projects/C\ projects/c++/graphics_rework_full_understanding/headers/../src/stb_image.h \
  /usr/include/string.h /usr/include/strings.h /usr/include/c++/16/math.h \
- /usr/include/assert.h
+ /usr/include/assert.h \
+ /home/yorkingstar/Documents/portfolio-projects/C\ projects/c++/graphics_rework_full_understanding/headers/quadrilateral.h

@@ -6,14 +6,25 @@
 
 
 class AABB{
+    private:
+        void pad_to_minimums() {
+            // Adjust the AABB so that no side is narrower than some delta, padding if necessary.            
+            float delta = 0.0001;
+            if (x.interval_length() < delta) x = x.expand(delta);
+            if (y.interval_length() < delta) y = y.expand(delta);
+            if (z.interval_length() < delta) z = z.expand(delta);
+        }
     public:
         Interval x,y,z;        
         AABB(){};
-        AABB(const Interval &x,const Interval &y,const Interval &z):x(x),y(y),z(z){};
+        AABB(const Interval &x,const Interval &y,const Interval &z):x(x),y(y),z(z){
+            pad_to_minimums();
+        };
         AABB(const AABB& box0, const AABB& box1) {
             x = Interval(box0.x, box1.x);
             y = Interval(box0.y, box1.y);
             z = Interval(box0.z, box1.z);
+            pad_to_minimums();
         }
         AABB(const point3 &a,const point3 &b ){
             // Treat the two points a and b as extrema for the bounding box, so we don't require a particular minimum/maximum coordinate order.
